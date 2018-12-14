@@ -10,7 +10,7 @@
   
   <title>
     
-      Event | Ale.js
+      Component basis | Ale.js
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -211,27 +211,48 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p><code>Ale.js</code> can easily help you add events to the parent element, just add a parameter - <code>events</code></p>
-<p>You can’t currently add event <code>(version 1.0 will be added)</code> when the component is defined, but we allow you to add events when the component is used:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* The events parameter supports all events, just use click example */</span><br><span class="line">Ale.use(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    el: &quot;#app&quot;,</span><br><span class="line">    events: &#123;</span><br><span class="line">        click: function()&#123;</span><br><span class="line">            alert(&quot;clicked!&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+    <section class="markdown-content"><h1 id="Component-basis"><a href="#Component-basis" class="headerlink" title="Component basis"></a>Component basis</h1><h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><p>You can use the <code>Ale.define</code> function to define a component. The most basic component must have at least two parameters (name and template):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/* Define a test component */</span><br><span class="line">Ale.define(&#123;</span><br><span class="line">    name: &quot;test&quot;, /* Component name */</span><br><span class="line">    template: &quot;Hello World&quot; /* Component template */</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Then we use a component with the <code>Ale.use</code> function, noting that <code>name</code> is the same:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ale.use(&#123;</span><br><span class="line">    name: &quot;test&quot;, /* Component name */</span><br><span class="line">    el: &quot;#app&quot; /* Target element */</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Then we can see that this component has been rendered:</p>
 <p id="app" class="demo"></p>
 
-<p>Here you need to be aware that all event names inside the <code>events</code> parameter do not need to be prefixed with <code>on</code>!</p>
+<p class="info-box">note! The innerHTML property in the target element will be emptied each time the component is rendered! So please don’t use a DOM element with other information as the target element of the component!</p>
+
+<p>Of course, you can also write the template syntax of <code>Alen</code> in the <code>template</code> parameter. The specific template syntax is as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; &#125;&#125; Execute a piece of js code, no output (spaces are supported in double braces)</span><br><span class="line">&#123;&#123;= &#125;&#125; Execute a piece of js code and output (the spaces are supported in double braces, but please don&apos;t put a space in front of the = sign! Otherwise it will only execute, it will not output) [Unescaped HTML]</span><br><span class="line">&#123;&#123;=! &#125;&#125; Execute a piece of js code and output (the spaces are supported in double braces, but please don&apos;t put a space before the = sign! Otherwise it will only execute, it will not output) [escaped HTML]</span><br><span class="line"></span><br><span class="line">In the template, you need to wrap a variable name defined in data with a pair of $:</span><br><span class="line">&#123;&#123;=$var$&#125;&#125;</span><br><span class="line"></span><br><span class="line">If you are a variable defined in the template, you don&apos;t need a pair $</span><br><span class="line">&#123;&#123;var var1 = &quot;Hello&quot;; alert(var1)&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ale.define(&#123;</span><br><span class="line">    name: &quot;test2&quot;, /* Component name */</span><br><span class="line">    template: &quot;Hello &#123;&#123;=$name$&#125;&#125;&quot; /* Component template */</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Of course, if you only write the template syntax in the <code>template</code> parameter, it will have no effect, so we also need to add a parameter called <code>states</code>: (learn the specific <code>states</code> parameter, please visit the tutorial below)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ale.define(&#123;</span><br><span class="line">    name: &quot;test2&quot;, /* Component name */</span><br><span class="line">    template: &quot;Hello &#123;&#123;=$name$&#125;&#125;&quot;, /* Component template */</span><br><span class="line">    states: [&#123; /* Defining state */</span><br><span class="line">        name: &quot;Ale.js&quot;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Demo:</p>
+<p id="app2" class="demo"></p>
+
+<p>Whenever you <code>use</code> a component, the use function returns a <code>Ale component object</code>, you can define a variable to accept it:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var aleCom = Ale.use(&#123;</span><br><span class="line">    name: &quot;test2&quot;,</span><br><span class="line">    el: &quot;#app3&quot;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>The specific <code>Ale component object</code> is useful, please refer to the following tutorial.</p>
+<h3 id="Ready"><a href="#Ready" class="headerlink" title="Ready?"></a>Ready?</h3><p>Ready? You already know some of the most basic skills of the components, please read on now!</p>
 <script src="/js/Ale.min1X.js"></script>
 <script>
 Ale.define({
     name: "test",
-    template: "Click me!"
+    template: "Hello World"
 })
-
 Ale.use({
     name: "test",
-    el: "#app",
-    events: {
-        click: function(){
-            alert("clicked!")
-        }
-    }
+    el: "#app"
+})
+
+Ale.define({
+    name: "test2",
+    template: "Hello \{\{\=\$name\$\}\}",
+    states: [{
+        name: "Ale.js"
+    }]
+})
+Ale.use({
+    name: "test2",
+    el: "#app2"
 })
 </script>
 </section>
@@ -253,7 +274,7 @@ Ale.use({
 
 <script>
   (function () {
-    var url = 'http://www.alejs.org/2018/11/30/events/';
+    var url = 'http://www.alejs.org/2018/12/01/basicCom-1X/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -309,7 +330,7 @@ Ale.use({
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "Event",
+        id: "Component basis",
         owner: "",
         repo: "",
         oauth: {
@@ -337,7 +358,7 @@ Ale.use({
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://www.alejs.org/2018/11/30/events/';
+  var disqus_url = 'http://www.alejs.org/2018/12/01/basicCom-1X/';
   
   (function(){
     var dsq = document.createElement('script');

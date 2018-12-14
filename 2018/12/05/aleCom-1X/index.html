@@ -10,7 +10,7 @@
   
   <title>
     
-      Event | Ale.js
+      Ale component object | Ale.js
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -211,29 +211,25 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p><code>Ale.js</code> can easily help you add events to the parent element, just add a parameter - <code>events</code></p>
-<p>You can’t currently add event <code>(version 1.0 will be added)</code> when the component is defined, but we allow you to add events when the component is used:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* The events parameter supports all events, just use click example */</span><br><span class="line">Ale.use(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    el: &quot;#app&quot;,</span><br><span class="line">    events: &#123;</span><br><span class="line">        click: function()&#123;</span><br><span class="line">            alert(&quot;clicked!&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p id="app" class="demo"></p>
-
-<p>Here you need to be aware that all event names inside the <code>events</code> parameter do not need to be prefixed with <code>on</code>!</p>
-<script src="/js/Ale.min1X.js"></script>
-<script>
-Ale.define({
-    name: "test",
-    template: "Click me!"
-})
-
-Ale.use({
-    name: "test",
-    el: "#app",
-    events: {
-        click: function(){
-            alert("clicked!")
-        }
-    }
-})
-</script>
+    <section class="markdown-content"><h1 id="Ale-component-object"><a href="#Ale-component-object" class="headerlink" title="Ale component object"></a>Ale component object</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>As you probably know in the previous tutorial, <code>Ale.js</code> returns an <code>Ale component object</code> every time you use the <code>use</code> component, you can define a variable to receive it:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var aleCom = Ale.use(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    el: &quot;#app&quot;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>After that, you can use any of the receive variables to use the operations provided by any <code>Ale component object</code>, for example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aleCom.nextState();</span><br></pre></td></tr></table></figure>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>The following are the operations supported by all <code>Ale component objects</code>:: <strong>(please note that the suffix with the parentheses is a function, the value is not added)</strong></p>
+<ul>
+<li>el [list of elements included in this component]</li>
+<li>template[this component template]</li>
+<li>nowState [current state]</li>
+<li>destroy() [Destroy this Ale component object and destroy all of this component in the real DOM]</li>
+<li>changeState() [Change a state, receive an argument of type object, does not affect nowState]</li>
+<li>nextStates() [to enter the next state]</li>
+<li>backStates() [return to the previous state]</li>
+<li>addStates() [Add one or more states, receive an array]</li>
+<li>removeStates() [delete a state]</li>
+<li>setStates() [Set state, accept an array, will overwrite the current state]</li>
+<li>statesLength() [return all state lengths]</li>
+<li>changeData() [Change one or more data]</li>
+</ul>
 </section>
     <!-- Tags START -->
     
@@ -253,7 +249,7 @@ Ale.use({
 
 <script>
   (function () {
-    var url = 'http://www.alejs.org/2018/11/30/events/';
+    var url = 'http://www.alejs.org/2018/12/05/aleCom-1X/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -309,7 +305,7 @@ Ale.use({
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "Event",
+        id: "Ale component object",
         owner: "",
         repo: "",
         oauth: {
@@ -337,7 +333,7 @@ Ale.use({
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://www.alejs.org/2018/11/30/events/';
+  var disqus_url = 'http://www.alejs.org/2018/12/05/aleCom-1X/';
   
   (function(){
     var dsq = document.createElement('script');

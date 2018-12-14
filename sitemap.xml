@@ -2,98 +2,133 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://cn.alejs.org/2018/11/26/installation/</loc>
+    <loc>http://www.alejs.org/2018/11/30/stateCom/</loc>
     
-    <lastmod>2018-12-10T11:50:32.277Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cn.alejs.org/2018/12/02/permissionCom/</loc>
-    
-    <lastmod>2018-12-10T06:12:17.683Z</lastmod>
+    <lastmod>2018-12-14T08:43:30.722Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cn.alejs.org/2018/12/01/lifeCom/</loc>
+    <loc>http://www.alejs.org/2018/12/02/stateCom-1X/</loc>
     
-    <lastmod>2018-12-10T06:08:34.748Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cn.alejs.org/2018/11/29/basicCom/</loc>
-    
-    <lastmod>2018-12-10T04:24:47.846Z</lastmod>
+    <lastmod>2018-12-14T08:41:49.184Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cn.alejs.org/2018/11/28/otherFun/</loc>
+    <loc>http://www.alejs.org/2018/12/02/permissionCom/</loc>
     
-    <lastmod>2018-12-10T04:23:07.383Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cn.alejs.org/2018/11/27/introduction/</loc>
-    
-    <lastmod>2018-12-10T03:49:45.993Z</lastmod>
+    <lastmod>2018-12-14T08:39:17.577Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cn.alejs.org/2018/12/03/aleCom/</loc>
+    <loc>http://www.alejs.org/2018/12/04/permissionCom-1X/</loc>
     
-    <lastmod>2018-12-10T03:42:51.040Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cn.alejs.org/2018/11/30/stateCom/</loc>
-    
-    <lastmod>2018-12-10T03:05:15.120Z</lastmod>
+    <lastmod>2018-12-14T08:38:12.025Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cn.alejs.org/2018/11/30/events/</loc>
+    <loc>http://www.alejs.org/2018/12/01/lifeCom/</loc>
     
-    <lastmod>2018-12-10T03:01:40.645Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cn.alejs.org/2018/11/28/alen/</loc>
-    
-    <lastmod>2018-12-09T03:28:32.931Z</lastmod>
+    <lastmod>2018-12-14T08:37:22.417Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cn.alejs.org/guide/index.html</loc>
+    <loc>http://www.alejs.org/2018/11/30/events/</loc>
+    
+    <lastmod>2018-12-14T08:36:00.901Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/2018/12/03/dataCom/</loc>
+    
+    <lastmod>2018-12-14T08:34:31.676Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/2018/12/01/basicCom-1X/</loc>
+    
+    <lastmod>2018-12-14T08:29:22.455Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/2018/11/28/alen/</loc>
+    
+    <lastmod>2018-12-14T08:27:31.848Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/2018/12/03/aleCom/</loc>
+    
+    <lastmod>2018-12-14T08:24:18.849Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/2018/12/05/aleCom-1X/</loc>
+    
+    <lastmod>2018-12-14T08:24:07.297Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/2018/11/29/basicCom/</loc>
+    
+    <lastmod>2018-12-14T01:55:25.988Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/2018/11/28/otherFun/</loc>
+    
+    <lastmod>2018-12-14T01:49:31.331Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/2018/11/27/introduction/</loc>
+    
+    <lastmod>2018-12-14T01:48:42.441Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/2018/11/26/installation/</loc>
+    
+    <lastmod>2018-12-14T00:54:57.216Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/guide/index.html</loc>
     
     <lastmod>2018-11-28T09:11:11.181Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cn.alejs.org/tags/index.html</loc>
+    <loc>http://www.alejs.org/tags/index.html</loc>
     
     <lastmod>2018-11-22T03:49:48.736Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cn.alejs.org/project/index.html</loc>
+    <loc>http://www.alejs.org/project/index.html</loc>
     
     <lastmod>2018-11-22T03:49:48.734Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cn.alejs.org/about/index.html</loc>
+    <loc>http://www.alejs.org/about/index.html</loc>
     
     <lastmod>2018-11-22T03:49:48.732Z</lastmod>
     

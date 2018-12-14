@@ -10,7 +10,7 @@
   
   <title>
     
-      Event | Ale.js
+      Data | Ale.js
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -211,27 +211,54 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p><code>Ale.js</code> can easily help you add events to the parent element, just add a parameter - <code>events</code></p>
-<p>You can’t currently add event <code>(version 1.0 will be added)</code> when the component is defined, but we allow you to add events when the component is used:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* The events parameter supports all events, just use click example */</span><br><span class="line">Ale.use(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    el: &quot;#app&quot;,</span><br><span class="line">    events: &#123;</span><br><span class="line">        click: function()&#123;</span><br><span class="line">            alert(&quot;clicked!&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p id="app" class="demo"></p>
+    <section class="markdown-content"><h1 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>In the <code>1.0</code> version, we added a new property - <code>data</code></p>
+<p><code>data</code> is used to set the data. You can add a parameter named <code>data</code> when defining the component, or you can add it dynamically when using the component:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* Add when defining a component */</span><br><span class="line">Ale.define(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    template: &quot;Hello&quot;,</span><br><span class="line">    data: &#123; /* Add data here */</span><br><span class="line">        str: &quot;World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* Dynamically added when using components */</span><br><span class="line">Ale.use(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    el: &quot;#app&quot;,</span><br><span class="line">    data: &#123; /* Add data here */</span><br><span class="line">        str: &quot;World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>If you dynamically add data while using a component, the <strong>name</strong> data added at the time of the definition will be overwritten:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Ale.define(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    template: &quot;Hello&quot;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        str: &quot;World&quot;, /* Str is overwritten */</span><br><span class="line">        str2: &quot;Hello&quot; /* Str2 is not overwritten! Be sure to pay attention! */</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Ale.use(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    el: &quot;#app&quot;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        str: &quot;World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>So we have defined the data, how to use it? Very simple, just set the value of the parameter of the <strong>support function</strong> to a function, then this function will automatically bind <code>this</code> to <code>data</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Ale.define(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    template: function()&#123;</span><br><span class="line">        return &quot;Hello &quot; + this.str; /* Here return is used to return the value required by the original property */</span><br><span class="line">    &#125;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        str: &quot;World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Ale.use(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    el: &quot;#app&quot;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p id="app" class="demo"><br><br></p>
 
-<p>Here you need to be aware that all event names inside the <code>events</code> parameter do not need to be prefixed with <code>on</code>!</p>
+<p>Very simple? Then the following list lists the properties of all supported functions:</p>
+<ul>
+<li>template</li>
+<li>states</li>
+<li>events</li>
+</ul>
+<p><strong>Some properties may not be known yet, but please continue to check out our tutorial!</strong></p>
+<p>Of course, just relying on the fact that data can be dynamically assigned does not yet fully interpret the flexibility of the data, then there is a function - <code>changeData</code></p>
+<p>The <code>changeData</code> function dynamically modifies the value of the data so that you are fully committed to the data. The <code>changeData</code> function is one of the functions of the <code>Ale component object</code>, then you only need to call it like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ale component object.changeData();</span><br></pre></td></tr></table></figure>
+<p>At the same time, the changeData function receives <code>2 string</code> parameters, or <code>1 object</code> parameters.</p>
+<p>When you pass in the <code>2 string</code> parameter, the first parameter is the name of the data property to be modified, and the second parameter is the new value passed in:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/* Modify the value of the str attribute of data to Ale.js */</span><br><span class="line">AleComponentObject.changeData(&quot;str&quot;, &quot;Ale.js&quot;);</span><br></pre></td></tr></table></figure>
+<p>When you pass in the <code>1 object</code> parameter, you can write:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/* Modify the value of the str attribute of data and the value of the str2 attribute to Ale.js */</span><br><span class="line">AleComponentObject.changeData(&#123;</span><br><span class="line">    str: &apos;Ale.js&apos;,</span><br><span class="line">    str2: &apos;Ale.js&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>When you call this function and pass in the required value, all properties that apply this value will be updated, so now enter <code>app.changeData(&quot;str&quot;, &quot;new message&quot;);</code> in the console of the current page. and you will see the value of the instance below dynamically updated:</p>
+<p class="demo" id="app2"></p>
+
+<p>Above demo’s code:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Ale.define(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    template: function()&#123;</span><br><span class="line">        return &quot;Hello &quot; + this.str;</span><br><span class="line">    &#125;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        str: &quot;World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">var app = Ale.use(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    el: &quot;#app2&quot;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <script src="/js/Ale.min1X.js"></script>
 <script>
 Ale.define({
     name: "test",
-    template: "Click me!"
+    template: function(){
+        return "Hello " + this.str;
+    },
+    data: {
+        str: "World"
+    }
 })
 
 Ale.use({
     name: "test",
-    el: "#app",
-    events: {
-        click: function(){
-            alert("clicked!")
-        }
-    }
+    el: "#app"
+})
+var app = Ale.use({
+    name: "test",
+    el: "#app2"
 })
 </script>
 </section>
@@ -253,7 +280,7 @@ Ale.use({
 
 <script>
   (function () {
-    var url = 'http://www.alejs.org/2018/11/30/events/';
+    var url = 'http://www.alejs.org/2018/12/03/dataCom/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -309,7 +336,7 @@ Ale.use({
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "Event",
+        id: "Data",
         owner: "",
         repo: "",
         oauth: {
@@ -337,7 +364,7 @@ Ale.use({
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://www.alejs.org/2018/11/30/events/';
+  var disqus_url = 'http://www.alejs.org/2018/12/03/dataCom/';
   
   (function(){
     var dsq = document.createElement('script');

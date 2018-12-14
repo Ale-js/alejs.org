@@ -10,7 +10,7 @@
   
   <title>
     
-      Event | Ale.js
+      Permission | Ale.js
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -211,27 +211,36 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p><code>Ale.js</code> can easily help you add events to the parent element, just add a parameter - <code>events</code></p>
-<p>You can’t currently add event <code>(version 1.0 will be added)</code> when the component is defined, but we allow you to add events when the component is used:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* The events parameter supports all events, just use click example */</span><br><span class="line">Ale.use(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    el: &quot;#app&quot;,</span><br><span class="line">    events: &#123;</span><br><span class="line">        click: function()&#123;</span><br><span class="line">            alert(&quot;clicked!&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p id="app" class="demo"></p>
+    <section class="markdown-content"><h1 id="Permission"><a href="#Permission" class="headerlink" title="Permission"></a>Permission</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>When a component is defined, you can add permissions to the component (using a <code>permissions</code> parameter to add):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ale.define(&#123;</span><br><span class="line">    name: &quot;test&quot;,</span><br><span class="line">    template: &quot;Try entering aleCom.nextStates() in the console&quot;,</span><br><span class="line">    permissions: &#123;</span><br><span class="line">        nextStates: false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p id="app" class="demo"><br></p>
 
-<p>Here you need to be aware that all event names inside the <code>events</code> parameter do not need to be prefixed with <code>on</code>!</p>
+<p>Among them, the <code>permissions</code> parameter requires an <code>Object</code> object, and a <code>Ale component object</code> function faces a Boolean value.</p>
+<p>When the pair value is <code>true</code>, it means that the operation is allowed. When the value is <code>false</code>, the operation is not allowed (all operations default to <code>true</code> permission).</p>
+<p><br></p>
+<p>The following are the function names of all <code>Ale component objects</code> supported by the <code>permissions</code> parameter:</p>
+<ul>
+<li>changeState</li>
+<li>nextStates</li>
+<li>addStates</li>
+<li>removeStates</li>
+<li>setStates</li>
+<li>backStates</li>
+<li>changeData</li>
+</ul>
 <script src="/js/Ale.min1X.js"></script>
 <script>
 Ale.define({
     name: "test",
-    template: "Click me!"
+    template: "Try entering aleCom.nextStates() in the console",
+    permissions: {
+        nextStates: false
+    }
 })
 
-Ale.use({
+var aleCom = Ale.use({
     name: "test",
-    el: "#app",
-    events: {
-        click: function(){
-            alert("clicked!")
-        }
-    }
+    el: "#app"
 })
 </script>
 </section>
@@ -253,7 +262,7 @@ Ale.use({
 
 <script>
   (function () {
-    var url = 'http://www.alejs.org/2018/11/30/events/';
+    var url = 'http://www.alejs.org/2018/12/04/permissionCom-1X/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -309,7 +318,7 @@ Ale.use({
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "Event",
+        id: "Permission",
         owner: "",
         repo: "",
         oauth: {
@@ -337,7 +346,7 @@ Ale.use({
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://www.alejs.org/2018/11/30/events/';
+  var disqus_url = 'http://www.alejs.org/2018/12/04/permissionCom-1X/';
   
   (function(){
     var dsq = document.createElement('script');

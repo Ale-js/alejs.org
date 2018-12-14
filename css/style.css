@@ -124,10 +124,13 @@ pre {
 .index-app-main {
   margin: auto !important;
 }
+.bar {
+  background: #0060df !important;
+}
 #index-title-box {
   margin: auto;
   height: 230px;
-  width: 600px;
+  width: 700px;
   text-align: left;
   position: relative;
   right: 20px;
