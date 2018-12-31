@@ -10,7 +10,7 @@
   
   <title>
     
-      插件 | Ale.js
+      Plugin | Ale.js
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -139,36 +139,36 @@
 
 
 <div id="v1X">
-    <h3>基础</h3>
-    <a href="/2018/12/01/Introduction" class="sidebar-link">介绍</a>
+    <h3>Foundation</h3>
+    <a href="/2018/12/01/Introduction" class="sidebar-link">Introduce</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/Install" class="sidebar-link">安装</a>
+    <a href="/2018/12/01/Install" class="sidebar-link">Install</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">组件基础</a>
-    <h3>深入组件</h3>
-    <a href="/2018/12/01/ComponentObj" class="sidebar-link">组件对象</a>
+    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">Component Foundation</a>
+    <h3>In-depth Component</h3>
+    <a href="/2018/12/01/ComponentObj" class="sidebar-link">Component object</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentData" class="sidebar-link">Data</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentLife" class="sidebar-link">生命周期</a>
+    <a href="/2018/12/01/ComponentLife" class="sidebar-link">Life</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentMethod" class="sidebar-link">Method</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentImport" class="sidebar-link">复合组件</a>
+    <a href="/2018/12/01/ComponentImport" class="sidebar-link">Composite Component</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">调试模式</a>
-    <h3>扩展</h3>
-    <a href="/2018/12/01/plugin" class="sidebar-link">插件</a>
-    <h3>高级</h3>
-    <a href="/2018/12/01/version" class="sidebar-link">版本</a>
+    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">Debug Mode</a>
+    <h3>Expansion</h3>
+    <a href="/2018/12/01/plugin" class="sidebar-link">Plugin</a>
+    <h3>Advanced</h3>
+    <a href="/2018/12/01/version" class="sidebar-link">Version</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/config" class="sidebar-link">配置</a>
+    <a href="/2018/12/01/config" class="sidebar-link">Config</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/filter" class="sidebar-link">过滤器</a>
-    <h3>内在</h3>
-    <a href="/2018/12/01/deepInRespond" class="sidebar-link">深入响应式原理</a>
-    <h3>更多</h3>
-    <a href="/2018/12/01/Comparison" class="sidebar-link">对比其他框架</a>
+    <a href="/2018/12/01/filter" class="sidebar-link">Filter</a>
+    <h3>Inner</h3>
+    <a href="/2018/12/01/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
+    <h3>More</h3>
+    <a href="/2018/12/01/Comparison" class="sidebar-link">Compare Other Framework</a>
 </div>
 
 <script>
@@ -186,18 +186,18 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><p>我们需要使用 <code>Ale.use</code> 函数来加载一个插件：</p>
+    <section class="markdown-content"><h1 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h1><h3 id="Using-plugins"><a href="#Using-plugins" class="headerlink" title="Using plugins"></a>Using plugins</h3><p>We need to load a plugin using the <code>Ale.use</code> function:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ale.use();</span><br></pre></td></tr></table></figure>
-<p>其中，<code>Ale.use</code> 函数需要一个参数，来指定要加载的 Ale 插件对象。例如我们传入一个名为 <code>test</code> 的 Ale 插件对象：</p>
+<p>The <code>Ale.use</code> function takes a parameter to specify the Ale plugin object to load. For example, we pass in an Ale plugin object named <code>test</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ale.use(test);</span><br></pre></td></tr></table></figure>
-<p><code>test</code> 其实就是一个变量。在下面的章节中，我们将会学习如何制作一个 Ale 插件对象。</p>
-<h3 id="制作插件"><a href="#制作插件" class="headerlink" title="制作插件"></a>制作插件</h3><p>首先先让我们来定义一个<code>object</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/* 定义一个名为test的变量 */</span><br><span class="line">var test = &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果要想让 <code>test</code> 成为一个 Ale 插件对象，那么它至少要具备 <code>name</code> 和 <code>install</code> 属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var test = &#123;</span><br><span class="line">    name: &quot;test&quot;, /* 插件名称 */</span><br><span class="line">    install: function()&#123;</span><br><span class="line">        /* 安装函数，当用户 use 插件时会调用 */</span><br><span class="line">        alert(&quot;Hello!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>你可以在 <code>install</code> 属性里给 Ale 对象的 <code>prototype</code> 属性添加函数或属性…</p>
-<p>反正随便啦，安装函数支持任意的 JavaScript 代码！</p>
-<h3 id="在线实例"><a href="#在线实例" class="headerlink" title="在线实例"></a>在线实例</h3><p>我们已经定义了一个名为 <code>test</code> 的 Ale 插件对象，现在让我们在控制台中输入 <code>Ale.use(test)</code> 来安装它吧！（安装时会输出 Hello! ）</p>
+<p><code>test</code> is actually a variable. In the following sections, we will learn how to make an Ale plugin object.</p>
+<h3 id="Making-a-plugin"><a href="#Making-a-plugin" class="headerlink" title="Making a plugin"></a>Making a plugin</h3><p>First let us define an <code>object</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/* Define a variable called test */</span><br><span class="line">var test = &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If you want <code>test</code> to be an Ale plugin object, then it must have at least the <code>name</code> and <code>install</code> attributes:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var test = &#123;</span><br><span class="line">    name: &quot;test&quot;, /* Plugin name */</span><br><span class="line">    install: function()&#123;</span><br><span class="line">        /* Install function, which is called when the user uses the plugin */</span><br><span class="line">        alert(&quot;Hello!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You can add functions or properties to the <code>letotype</code> property of the Ale object in the <code>install</code> property…</p>
+<p>Anyway, the installer supports arbitrary JavaScript code!</p>
+<h3 id="Online-instance"><a href="#Online-instance" class="headerlink" title="Online instance"></a>Online instance</h3><p>We have defined an Ale plugin object called <code>test</code>, now let’s install it by typing <code>Ale.use(test)</code> in the console! (Hello will be output during installation!)</p>
 <script src="../../../../js/ale.min.js"></script>
 <script>
 var test = {
@@ -282,7 +282,7 @@ var test = {
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "插件",
+        id: "Plugin",
         owner: "",
         repo: "",
         oauth: {

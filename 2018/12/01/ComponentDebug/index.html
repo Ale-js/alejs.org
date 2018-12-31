@@ -10,7 +10,7 @@
   
   <title>
     
-      调试模式 | Ale.js
+      Debug mode | Ale.js
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -139,36 +139,36 @@
 
 
 <div id="v1X">
-    <h3>基础</h3>
-    <a href="/2018/12/01/Introduction" class="sidebar-link">介绍</a>
+    <h3>Foundation</h3>
+    <a href="/2018/12/01/Introduction" class="sidebar-link">Introduce</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/Install" class="sidebar-link">安装</a>
+    <a href="/2018/12/01/Install" class="sidebar-link">Install</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">组件基础</a>
-    <h3>深入组件</h3>
-    <a href="/2018/12/01/ComponentObj" class="sidebar-link">组件对象</a>
+    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">Component Foundation</a>
+    <h3>In-depth Component</h3>
+    <a href="/2018/12/01/ComponentObj" class="sidebar-link">Component object</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentData" class="sidebar-link">Data</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentLife" class="sidebar-link">生命周期</a>
+    <a href="/2018/12/01/ComponentLife" class="sidebar-link">Life</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentMethod" class="sidebar-link">Method</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentImport" class="sidebar-link">复合组件</a>
+    <a href="/2018/12/01/ComponentImport" class="sidebar-link">Composite Component</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">调试模式</a>
-    <h3>扩展</h3>
-    <a href="/2018/12/01/plugin" class="sidebar-link">插件</a>
-    <h3>高级</h3>
-    <a href="/2018/12/01/version" class="sidebar-link">版本</a>
+    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">Debug Mode</a>
+    <h3>Expansion</h3>
+    <a href="/2018/12/01/plugin" class="sidebar-link">Plugin</a>
+    <h3>Advanced</h3>
+    <a href="/2018/12/01/version" class="sidebar-link">Version</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/config" class="sidebar-link">配置</a>
+    <a href="/2018/12/01/config" class="sidebar-link">Config</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/filter" class="sidebar-link">过滤器</a>
-    <h3>内在</h3>
-    <a href="/2018/12/01/deepInRespond" class="sidebar-link">深入响应式原理</a>
-    <h3>更多</h3>
-    <a href="/2018/12/01/Comparison" class="sidebar-link">对比其他框架</a>
+    <a href="/2018/12/01/filter" class="sidebar-link">Filter</a>
+    <h3>Inner</h3>
+    <a href="/2018/12/01/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
+    <h3>More</h3>
+    <a href="/2018/12/01/Comparison" class="sidebar-link">Compare Other Framework</a>
 </div>
 
 <script>
@@ -186,25 +186,25 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h1><h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>当你有一个庞大的前端系统时，如果没有办法监测数据的变化，那么调试就将变成噩梦。</p>
-<p><code>debug</code> 参数的出现很好地解决了这个问题，你可以在组件<code>定义</code>或<code>渲染</code>时添加<code>debug</code>参数（渲染时的debug参数将会完全覆盖定义时设置的debug参数）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/* 在定义时添加 */</span><br><span class="line">Ale(&quot;test&quot;, &#123;</span><br><span class="line">    /* ...... */</span><br><span class="line">    debug: &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">/* 或者在渲染时动态添加 */</span><br><span class="line">Ale.render(&quot;test&quot;, &#123;</span><br><span class="line">    /* ...... */</span><br><span class="line">    debug: &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p><code>debug</code>参数内置有两个函数：<code>setter</code>和<code>getter</code>，分别监测组件数据的设置和获取 <strong>（其中，setter和getter各需要一个参数，用来接收值）</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Ale(&quot;test&quot;, &#123;</span><br><span class="line">    /* ...... */</span><br><span class="line">    debug: &#123;</span><br><span class="line">        setter: function(val)&#123;</span><br><span class="line">            console.log(&quot;你设置了我为：&quot;+val);</span><br><span class="line">        &#125;,</span><br><span class="line">        getter: function(val)&#123;</span><br><span class="line">            console.log(&quot;你获取了我：&quot;+val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+    <section class="markdown-content"><h1 id="Debug-mode"><a href="#Debug-mode" class="headerlink" title="Debug mode"></a>Debug mode</h1><h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><p>When you have a huge front-end system, debugging can become a nightmare if there is no way to monitor data changes.</p>
+<p>The occurrence of the <code>debug</code> parameter solves this problem well. You can add the <code>debug</code> parameter to the component <code>definition</code> or <code>render</code> (the debug parameter when rendering will completely override the debug parameter set at the time of definition):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/* Added when defining */</span><br><span class="line">Ale(&quot;test&quot;, &#123;</span><br><span class="line">    /* ...... */</span><br><span class="line">    debug: &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">/* Or add it dynamically when rendering */</span><br><span class="line">Ale.render(&quot;test&quot;, &#123;</span><br><span class="line">    /* ...... */</span><br><span class="line">    debug: &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>The <code>debug</code> parameter has two built-in functions: <code>setter</code> and <code>getter</code>, which monitor the setting and getting of the component data respectively <strong>(where the setter and getter each require a parameter to receive the value)</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Ale(&quot;test&quot;, &#123;</span><br><span class="line">    /* ...... */</span><br><span class="line">    debug: &#123;</span><br><span class="line">        setter: function(val)&#123;</span><br><span class="line">            console.log(&quot;You set me up as: &quot;+val);</span><br><span class="line">        &#125;,</span><br><span class="line">        getter: function(val)&#123;</span><br><span class="line">            console.log(&quot;You got me: &quot;+val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p class="demo" id="app"></p>
 
-<p>上方实例代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Ale(&quot;test&quot;, &#123;</span><br><span class="line">    template: &quot;在控制台中获取或重设 app.data.data1 的值，然后查看控制台中的输出信息&quot;,</span><br><span class="line">    debug: &#123;</span><br><span class="line">        setter: function(val)&#123;</span><br><span class="line">            console.log(&quot;你设置了我为：&quot;+val);</span><br><span class="line">        &#125;,</span><br><span class="line">        getter: function(val)&#123;</span><br><span class="line">            console.log(&quot;你获取了我：&quot;+val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        data1: &quot;Hello&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Ale.render(&quot;test&quot;, &#123;</span><br><span class="line">    el: &quot;#app&quot;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Above example code:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Ale(&quot;test&quot;, &#123;</span><br><span class="line">    template: &quot;Get or reset the value of app.data.data1 in the console, then view the output in the console&quot;,</span><br><span class="line">    debug: &#123;</span><br><span class="line">        setter: function(val)&#123;</span><br><span class="line">            console.log(&quot;You set me up as: &quot;+val);</span><br><span class="line">        &#125;,</span><br><span class="line">        getter: function(val)&#123;</span><br><span class="line">            console.log(&quot;You got me: &quot;+val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        data1: &quot;Hello&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Ale.render(&quot;test&quot;, &#123;</span><br><span class="line">    el: &quot;#app&quot;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <script src="../../../../js/ale.min.js"></script>
 <script>
 Ale("test", {
-    template: "在控制台中获取或重设 app.data.data1 的值，然后查看控制台中的输出信息",
+    template: "Get or reset the value of app.data.data1 in the console, then view the output in the console",
     debug: {
         setter: function(val){
-            console.log("你设置了我为："+val);
+            console.log("You set me up as: "+val);
         },
         getter: function(val){
-            console.log("你获取了我："+val);
+            console.log("You got me: "+val);
         }
     },
     data: {
@@ -290,7 +290,7 @@ Ale.render("test", {
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "调试模式",
+        id: "Debug mode",
         owner: "",
         repo: "",
         oauth: {

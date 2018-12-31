@@ -10,7 +10,7 @@
   
   <title>
     
-      介绍 | Ale.js
+      Introduction | Ale.js
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -139,36 +139,36 @@
 
 
 <div id="v1X">
-    <h3>基础</h3>
-    <a href="/2018/12/01/Introduction" class="sidebar-link">介绍</a>
+    <h3>Foundation</h3>
+    <a href="/2018/12/01/Introduction" class="sidebar-link">Introduce</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/Install" class="sidebar-link">安装</a>
+    <a href="/2018/12/01/Install" class="sidebar-link">Install</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">组件基础</a>
-    <h3>深入组件</h3>
-    <a href="/2018/12/01/ComponentObj" class="sidebar-link">组件对象</a>
+    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">Component Foundation</a>
+    <h3>In-depth Component</h3>
+    <a href="/2018/12/01/ComponentObj" class="sidebar-link">Component object</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentData" class="sidebar-link">Data</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentLife" class="sidebar-link">生命周期</a>
+    <a href="/2018/12/01/ComponentLife" class="sidebar-link">Life</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentMethod" class="sidebar-link">Method</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentImport" class="sidebar-link">复合组件</a>
+    <a href="/2018/12/01/ComponentImport" class="sidebar-link">Composite Component</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">调试模式</a>
-    <h3>扩展</h3>
-    <a href="/2018/12/01/plugin" class="sidebar-link">插件</a>
-    <h3>高级</h3>
-    <a href="/2018/12/01/version" class="sidebar-link">版本</a>
+    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">Debug Mode</a>
+    <h3>Expansion</h3>
+    <a href="/2018/12/01/plugin" class="sidebar-link">Plugin</a>
+    <h3>Advanced</h3>
+    <a href="/2018/12/01/version" class="sidebar-link">Version</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/config" class="sidebar-link">配置</a>
+    <a href="/2018/12/01/config" class="sidebar-link">Config</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/filter" class="sidebar-link">过滤器</a>
-    <h3>内在</h3>
-    <a href="/2018/12/01/deepInRespond" class="sidebar-link">深入响应式原理</a>
-    <h3>更多</h3>
-    <a href="/2018/12/01/Comparison" class="sidebar-link">对比其他框架</a>
+    <a href="/2018/12/01/filter" class="sidebar-link">Filter</a>
+    <h3>Inner</h3>
+    <a href="/2018/12/01/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
+    <h3>More</h3>
+    <a href="/2018/12/01/Comparison" class="sidebar-link">Compare Other Framework</a>
 </div>
 
 <script>
@@ -186,41 +186,40 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="Ale-js是什么"><a href="#Ale-js是什么" class="headerlink" title="Ale.js是什么"></a>Ale.js是什么</h2><p>Ale (中文：啤酒) 是一套用于以组件的形式构建用户界面的渐进式框架。它信奉，万物皆组件。与其它大型框架不同的是，Ale 只需要你将关注点放在数据上，并不需要关心任何与视图有关的内容。当你更新数据时，视图中任何使用到它的地方都会得到更新。</p>
+    <section class="markdown-content"><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="What-is-Ale-js"><a href="#What-is-Ale-js" class="headerlink" title="What is Ale.js?"></a>What is Ale.js?</h2><p>Ale (Chinese: 啤酒) is a set of progressive frameworks for building user interfaces in the form of components. It believes that everything is a component. Unlike other large frameworks, Ale only needs you to focus on the data and does not need to care about any content related to the view. When you update the data, any places in the view that use it will be updated.</p>
 <p><br></p>
-<p>我们将 <code>Vue</code> 和 <code>React</code> 的一些特性融合在 <code>Ale</code> 中，使之更加便捷、轻量。同时，<code>diff</code> 算法在 Ale 中也有应用（得益于 Ale 自研的 diff 算法，只有大约50行，极其轻量）。</p>
+<p>We combine some of the features of <code>Vue</code> and <code>React</code> in <code>Ale</code> to make it more convenient and lightweight. At the same time, the <code>diff</code> algorithm is also used in Ale (thanks to Ale’s self-developed diff algorithm, which is only about 50 lines, extremely lightweight).</p>
 <p><br></p>
-<p>同时，在 Ale 中，你也根本无需操心任何有关于 <strong>性能</strong> 方面的事情，因为 Ale 经过压缩后（非g-zip）只有大约7kb大小，执行速度也分别接近 Vue 和 React 的 <strong>3</strong> 倍！</p>
+<p>At the same time, in Ale, you don’t have to worry about anything about <strong>performance</strong>, because Ale is compressed (non-g-zip) only about 7kb in size, and the execution speed is also close to <strong>3</strong> times that of Vue and React!</p>
 <p><br></p>
-<p>如果你已经是有经验的前端开发者，想知道 Ale 与其它库 / 框架有哪些具体区别，请查看 <a href="/2018/12/01/Comparison">对比其它框架</a>。</p>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p class="info-box">我们的官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识。如果你刚开始学习前端开发，将框架作为你的第一步可能不是最好的主意 —— 掌握好基础知识再来吧！之前有其它框架的使用经验会有帮助，但这不是必需的。<br></p>
+<p>If you are already an experienced front-end developer and want to know the specific differences between Ale and other libraries/frames, check out <a href="/2018/12/01/Comparison">Compare other frameworks</a>.</p>
+<h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><p class="info-box">Our official guide assumes that you already know intermediate knowledge about HTML, CSS, and JavaScript. If you are just starting to learn about front-end development, it may not be the best idea to use the framework as your first step - get the basics and come back! Previous experience with other frameworks will help, but it is not required.<br></p>
 
-<p>使用 Ale 最简单的例子就是制作一个 <code>HelloWorld</code> 页面，让我们先创建一个 <code>.html</code> 文件，然后通过如下方式引入 Ale：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开发环境版本 --&gt;</span><br><span class="line">&lt;script src=&quot;ale.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>或者：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 生产环境版本，压缩了代码 --&gt;</span><br><span class="line">&lt;script src=&quot;ale.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>安装教程给出了更多安装 Ale 的方式，如果你想要了解更多关于 Ale 的安装方式，请访问 <a href="/2018/12/01/Install">安装教程</a></p>
-<h3 id="第一个组件"><a href="#第一个组件" class="headerlink" title="第一个组件"></a>第一个组件</h3><p>已经引入好了 Ale 核心库文件？让我们开始制作我们的第一个组件吧！</p>
-<p>在 Ale 中，所有的组件都是通过 <code>Ale</code> 函数创建的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ale(); //当你引入了 Ale 核心库之后，Ale将会被注册为全局函数</span><br></pre></td></tr></table></figure>
-<p><code>Ale</code> 函数接收<code>2</code>个参数，第一个参数用来设置这个组件的名称（字符串），第二个参数用来配置一些默认的参数（对象）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//定义一个名为 com1 的组件</span><br><span class="line">Ale(&quot;com1&quot;, &#123;</span><br><span class="line">    //配置</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>当然，单纯这样还不能创建出一个最基本的组件，一个最基本的组件至少要在配置里添加一个叫 <code>template</code> 的参数，用来设置该组件的模板：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//定义一个名为 com1 的组件</span><br><span class="line">Ale(&quot;com1&quot;, &#123;</span><br><span class="line">    /* 配置模板为HelloWorld */</span><br><span class="line">    template: &quot;HelloWorld&quot;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>至此，最基本的组件就定义完成了！</p>
-<p>但是如果我们单纯只定义组件，而没有渲染它，那么这个组件将没有任何效果。这时我们可以使用 <code>Ale.render</code> 函数来渲染一个组件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ale.render(); //渲染组件函数</span><br></pre></td></tr></table></figure>
-<p><code>Ale.render</code> 函数也同样接收<code>2</code>个参数，和<code>Ale</code>函数一样，第一个参数用来设置这个组件的名称（字符串），第二个参数用来配置一些默认的参数（对象）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ale.render(&quot;com1&quot;, &#123;</span><br><span class="line">    el: &quot;#app&quot; /* 渲染一个组件时必须添加el属性，用来选中元素 */</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>其中<code>id</code>为<code>app</code>的元素：</p>
+<p>The simplest example of using Ale is to make a <code>HelloWorld</code> page. Let’s create a <code>.html</code> file and then include Ale as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Development environment version --&gt;</span><br><span class="line">&lt;script src=&quot;ale.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>Or:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Production environment version, compressed code --&gt;</span><br><span class="line">&lt;script src=&quot;ale.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>The installation tutorial gives you more ways to install Ale. If you want to know more about how to install Ale, please visit <a href="/2018/12/01/Install">Installation Tutorial</a></p>
+<h3 id="The-first-component"><a href="#The-first-component" class="headerlink" title="The first component"></a>The first component</h3><p>Have you included the Ale core library file? Let’s start making our first component!</p>
+<p>In Ale, all components are created with the <code>Ale</code> function:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ale(); //When you included the Ale core library, Ale will be registered as a global function.</span><br></pre></td></tr></table></figure>
+<p>The <code>Ale</code> function receives <code>2</code> arguments, the first argument is used to set the name of the component (string), and the second argument is used to configure some default arguments (objects):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//Define a component called com1</span><br><span class="line">Ale(&quot;com1&quot;, &#123;</span><br><span class="line">    //config</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Of course, this alone can not create a basic component, a basic component at least to add a parameter called <code>template</code> in the configuration, used to set the template of the component:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//Define a component called com1</span><br><span class="line">Ale(&quot;com1&quot;, &#123;</span><br><span class="line">    /* The configuration template is HelloWorld. */</span><br><span class="line">    template: &quot;HelloWorld&quot;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>At this point, the most basic components are defined!</p>
+<p>But if we simply define the component without rendering it, then this component will have no effect. At this point we can use the <code>Ale.render</code> function to render a component:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ale.render(); //Rendering component function</span><br></pre></td></tr></table></figure>
+<p>The <code>Ale.render</code> function also receives <code>2</code> arguments, just like the <code>Ale</code> function, the first argument is used to set the name of the component (string), and the second argument is used to configure some default arguments (object):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ale.render(&quot;com1&quot;, &#123;</span><br><span class="line">    el: &quot;#app&quot; /* When you render a component, you must add the el attribute to select the element. */</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Where <code>id</code> is the element of <code>app</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&apos;app&apos;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>其中，每次渲染组件时都至少要添加一个配置参数，那就是 - <code>el</code>，用来设置需要选中的元素。这时，打开我们的<code>html</code>文件，你会发现组件渲染完成了：</p>
+<p>Among them, at least one configuration parameter must be added each time the component is rendered, that is - <code>el</code>, used to set the elements that need to be selected. At this point, open our <code>html</code> file and you will see that the component rendering is complete:</p>
 <p class="demo" id="app"></p>
 
-<h3 id="准备好了吗"><a href="#准备好了吗" class="headerlink" title="准备好了吗"></a>准备好了吗</h3><p>恭喜，现在你已经创建完成了自己的第一个 <code>Ale</code> 组件！而我们的教程才刚刚开始 —— 本教程的其余部分将涵盖其它高级功能更详细的细节，所以请务必读完整个教程！</p>
+<h3 id="Are-you-ready"><a href="#Are-you-ready" class="headerlink" title="Are you ready?"></a>Are you ready?</h3><p>Congratulations, now that you have created your first <code>Ale</code> component! And our tutorial is just getting started - the rest of this tutorial will cover more detailed details of other advanced features, so be sure to read the full tutorial!</p>
 <script src="../../../../js/ale.min.js"></script>
 <script>
-    //定义一个名为 com1 的组件
     Ale("com1", {
         template: "HelloWorld"
     })
@@ -302,7 +301,7 @@
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "介绍",
+        id: "Introduction",
         owner: "",
         repo: "",
         oauth: {

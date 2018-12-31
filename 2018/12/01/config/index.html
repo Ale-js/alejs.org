@@ -10,7 +10,7 @@
   
   <title>
     
-      配置 | Ale.js
+      Config | Ale.js
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -139,36 +139,36 @@
 
 
 <div id="v1X">
-    <h3>基础</h3>
-    <a href="/2018/12/01/Introduction" class="sidebar-link">介绍</a>
+    <h3>Foundation</h3>
+    <a href="/2018/12/01/Introduction" class="sidebar-link">Introduce</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/Install" class="sidebar-link">安装</a>
+    <a href="/2018/12/01/Install" class="sidebar-link">Install</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">组件基础</a>
-    <h3>深入组件</h3>
-    <a href="/2018/12/01/ComponentObj" class="sidebar-link">组件对象</a>
+    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">Component Foundation</a>
+    <h3>In-depth Component</h3>
+    <a href="/2018/12/01/ComponentObj" class="sidebar-link">Component object</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentData" class="sidebar-link">Data</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentLife" class="sidebar-link">生命周期</a>
+    <a href="/2018/12/01/ComponentLife" class="sidebar-link">Life</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentMethod" class="sidebar-link">Method</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentImport" class="sidebar-link">复合组件</a>
+    <a href="/2018/12/01/ComponentImport" class="sidebar-link">Composite Component</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">调试模式</a>
-    <h3>扩展</h3>
-    <a href="/2018/12/01/plugin" class="sidebar-link">插件</a>
-    <h3>高级</h3>
-    <a href="/2018/12/01/version" class="sidebar-link">版本</a>
+    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">Debug Mode</a>
+    <h3>Expansion</h3>
+    <a href="/2018/12/01/plugin" class="sidebar-link">Plugin</a>
+    <h3>Advanced</h3>
+    <a href="/2018/12/01/version" class="sidebar-link">Version</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/config" class="sidebar-link">配置</a>
+    <a href="/2018/12/01/config" class="sidebar-link">Config</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/filter" class="sidebar-link">过滤器</a>
-    <h3>内在</h3>
-    <a href="/2018/12/01/deepInRespond" class="sidebar-link">深入响应式原理</a>
-    <h3>更多</h3>
-    <a href="/2018/12/01/Comparison" class="sidebar-link">对比其他框架</a>
+    <a href="/2018/12/01/filter" class="sidebar-link">Filter</a>
+    <h3>Inner</h3>
+    <a href="/2018/12/01/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
+    <h3>More</h3>
+    <a href="/2018/12/01/Comparison" class="sidebar-link">Compare Other Framework</a>
 </div>
 
 <script>
@@ -186,13 +186,13 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h3 id="config-函数"><a href="#config-函数" class="headerlink" title="config 函数"></a>config 函数</h3><p>Ale 函数内置了 <code>Ale.config</code> 函数，用来更改一些 Ale 配置信息。目前 config 函数支持的配置如下：</p>
+    <section class="markdown-content"><h1 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h1><h3 id="config-function"><a href="#config-function" class="headerlink" title="config function"></a>config function</h3><p>AThe le function has a built-in <code>Ale.config</code> function to change some Ale configuration information. The configuration supported by the current config function is as follows:</p>
 <ul>
-<li>html <strong>（默认false）</strong>【是否不自动转义html标签（可以预防xss攻击，不要轻易打开）】</li>
-<li>diff <strong>（默认true）</strong>【是否在操作 DOM 时应用 diff 算法（推荐小应用关闭，中大型应用需要开启）】</li>
+<li>html <strong>(default false)</strong> [Do you not automatically escape html tags (can prevent xss attacks, don’t open them easily)]</li>
+<li>diff <strong>(default true)</strong> [Whether the diff algorithm is applied when operating the DOM (recommended applet is closed, medium and large applications need to be turned on)]</li>
 </ul>
-<p>你可以通过如下方式更改某一种配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Ale.config(&quot;html&quot;, true);</span><br><span class="line"></span><br><span class="line">/* 或 */</span><br><span class="line"></span><br><span class="line">Ale.config(&#123;</span><br><span class="line">    html: true,</span><br><span class="line">    diff: false</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>You can change one of the configurations by:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Ale.config(&quot;html&quot;, true);</span><br><span class="line"></span><br><span class="line">/* Or */</span><br><span class="line"></span><br><span class="line">Ale.config(&#123;</span><br><span class="line">    html: true,</span><br><span class="line">    diff: false</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </section>
     <!-- Tags START -->
     
@@ -267,7 +267,7 @@
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "配置",
+        id: "Config",
         owner: "",
         repo: "",
         oauth: {

@@ -10,7 +10,7 @@
   
   <title>
     
-      深入响应式原理 | Ale.js
+      In-depth responsive principle | Ale.js
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -139,36 +139,36 @@
 
 
 <div id="v1X">
-    <h3>基础</h3>
-    <a href="/2018/12/01/Introduction" class="sidebar-link">介绍</a>
+    <h3>Foundation</h3>
+    <a href="/2018/12/01/Introduction" class="sidebar-link">Introduce</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/Install" class="sidebar-link">安装</a>
+    <a href="/2018/12/01/Install" class="sidebar-link">Install</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">组件基础</a>
-    <h3>深入组件</h3>
-    <a href="/2018/12/01/ComponentObj" class="sidebar-link">组件对象</a>
+    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">Component Foundation</a>
+    <h3>In-depth Component</h3>
+    <a href="/2018/12/01/ComponentObj" class="sidebar-link">Component object</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentData" class="sidebar-link">Data</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentLife" class="sidebar-link">生命周期</a>
+    <a href="/2018/12/01/ComponentLife" class="sidebar-link">Life</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentMethod" class="sidebar-link">Method</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentImport" class="sidebar-link">复合组件</a>
+    <a href="/2018/12/01/ComponentImport" class="sidebar-link">Composite Component</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">调试模式</a>
-    <h3>扩展</h3>
-    <a href="/2018/12/01/plugin" class="sidebar-link">插件</a>
-    <h3>高级</h3>
-    <a href="/2018/12/01/version" class="sidebar-link">版本</a>
+    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">Debug Mode</a>
+    <h3>Expansion</h3>
+    <a href="/2018/12/01/plugin" class="sidebar-link">Plugin</a>
+    <h3>Advanced</h3>
+    <a href="/2018/12/01/version" class="sidebar-link">Version</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/config" class="sidebar-link">配置</a>
+    <a href="/2018/12/01/config" class="sidebar-link">Config</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/filter" class="sidebar-link">过滤器</a>
-    <h3>内在</h3>
-    <a href="/2018/12/01/deepInRespond" class="sidebar-link">深入响应式原理</a>
-    <h3>更多</h3>
-    <a href="/2018/12/01/Comparison" class="sidebar-link">对比其他框架</a>
+    <a href="/2018/12/01/filter" class="sidebar-link">Filter</a>
+    <h3>Inner</h3>
+    <a href="/2018/12/01/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
+    <h3>More</h3>
+    <a href="/2018/12/01/Comparison" class="sidebar-link">Compare Other Framework</a>
 </div>
 
 <script>
@@ -186,18 +186,18 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="深入响应式原理"><a href="#深入响应式原理" class="headerlink" title="深入响应式原理"></a>深入响应式原理</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Ale 使用 ES5 全新的 <code>defineProperty</code> 属性给对象添加 setter 和 getter。同时 Object.defineProperty 是 ES5 中一个无法 shim 的特性，并不是语法糖，这也就是为什么 Ale 不支持 IE8 以及更低版本浏览器。</p>
-<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><p>受现代 JavaScript 的限制 (而且 <code>Object.observe</code> 也已经被废弃)，Ale <strong>不能检测到对象属性的添加或删除</strong>。由于 Ale 会在初始化实例时对属性执行 getter/setter 转化过程，所以属性必须在 data 对象上存在才能让 Ale 转换它，这样才能让它是响应的。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    a: 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data.a = 2; /* 响应式 */</span><br><span class="line"></span><br><span class="line">data.b = 2; /* 非响应式 */</span><br></pre></td></tr></table></figure>
-<p>所以当你设置数据时，<strong>必需</strong> 设置需要具有响应式效果数据的值，哪怕它只是一个空值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    b: &apos;&apos; /* 这里需要设置为空 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h3><p>当你触发 setter（操作数据更新时），Ale 首先会更新这些数据，然后计算出更新后的全部属性结果，并循环更新。</p>
+    <section class="markdown-content"><h1 id="In-depth-responsive-principle"><a href="#In-depth-responsive-principle" class="headerlink" title="In-depth responsive principle"></a>In-depth responsive principle</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Ale adds setters and getters to objects using ES5’s new <code>defineProperty</code> property. At the same time Object.defineProperty is a feature in ES5 that cannot be shim, not syntactic sugar, which is why Ale does not support IE8 and lower browsers.</p>
+<h3 id="Limit"><a href="#Limit" class="headerlink" title="Limit"></a>Limit</h3><p>Affected by modern JavaScript (and <code>Object.observe</code> has also been deprecated), Ale <strong>cannot detect the addition or deletion of object properties</strong>. Since Ale will perform a getter/setter conversion procedure on the property when it initializes the instance, the property must exist on the data object in order for Ale to convert it so that it is responsive. E.g:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    a: 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data.a = 2; /* Responsive */</span><br><span class="line"></span><br><span class="line">data.b = 2; /* Non-responsive */</span><br></pre></td></tr></table></figure>
+<p>So when you set the data, <strong>Required</strong> sets the value that needs to have responsive effect data, even if it’s just a null value:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    b: &apos;&apos; /* Need to be set to empty here */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Specific"><a href="#Specific" class="headerlink" title="Specific"></a>Specific</h3><p>When you trigger the setter (when the operation data is updated), Ale first updates the data, then calculates the updated attribute results and updates them in a loop.</p>
 <p><br></p>
-<p>其中，<code>template</code>属性比较特殊，当数据更新完成后，Ale 会调用 <code>diff</code> 算法的函数，并生成一个 <code>伪DOM结构体</code>，Ale的diff算法将会比较 <code>伪DOM结构</code> 和 <code>真实DOM结构</code> 的区别，并且只更新有差异的 DOM 元素。</p>
+<p>Among them, the <code>template</code> attribute is special. When the data update is completed, Ale will call the function of <code>diff</code> algorithm and generate a <code>pseudo DOM structure</code>. Ale’s diff algorithm will compare <code>pseudo DOM structure</code> and <code>reality. The difference between DOM structure</code> and only update DOM elements with differences.</p>
 <p><br></p>
-<p>另外，diff 对比只会在同级 DOM 中进行，一旦发生层级改变，Ale 将不会继续对比，而是直接更新整个层。这样可以有效地增加 diff 的对比性能，减少对比的时间。</p>
+<p>In addition, the diff comparison will only be done in the peer DOM. Once a level change occurs, Ale will not continue to compare, but update the entire layer directly. This can effectively increase the contrast performance of diff and reduce the time of comparison.</p>
 <p><br></p>
-<p>还有一点，Ale 的 <code>diff</code> 算法只会对比元素的 <code>内容</code> \ <code>id</code> \ <code>class</code> \ <code>name</code> 属性是否相同，也就是说，当你动态更新例如 <code>onclick</code> 之类的属性，<code>diff</code> 算法是不会对比出差异的，而元素也就不会更新。这时你可以在元素更新时手动关闭 <code>diff</code> 算法，并在元素更新完成时开启即可！</p>
+<p>Another point is that Ale’s <code>diff</code> algorithm only compares whether the element’s <code>content</code> \ <code>id</code> \ <code>class</code> \ <code>name</code> attribute is the same, that is, when you dynamically update for example <code>onclick</code> The properties of the class, the <code>diff</code> algorithm does not compare the differences, and the elements are not updated. At this point you can manually turn off the <code>diff</code> algorithm when the element is updated and open it when the element update is complete!</p>
 </section>
     <!-- Tags START -->
     
@@ -272,7 +272,7 @@
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "深入响应式原理",
+        id: "In-depth responsive principle",
         owner: "",
         repo: "",
         oauth: {

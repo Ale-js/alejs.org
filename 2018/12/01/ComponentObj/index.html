@@ -10,7 +10,7 @@
   
   <title>
     
-      组件对象 | Ale.js
+      Component object | Ale.js
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -139,36 +139,36 @@
 
 
 <div id="v1X">
-    <h3>基础</h3>
-    <a href="/2018/12/01/Introduction" class="sidebar-link">介绍</a>
+    <h3>Foundation</h3>
+    <a href="/2018/12/01/Introduction" class="sidebar-link">Introduce</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/Install" class="sidebar-link">安装</a>
+    <a href="/2018/12/01/Install" class="sidebar-link">Install</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">组件基础</a>
-    <h3>深入组件</h3>
-    <a href="/2018/12/01/ComponentObj" class="sidebar-link">组件对象</a>
+    <a href="/2018/12/01/ComponentFoundation" class="sidebar-link">Component Foundation</a>
+    <h3>In-depth Component</h3>
+    <a href="/2018/12/01/ComponentObj" class="sidebar-link">Component object</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentData" class="sidebar-link">Data</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentLife" class="sidebar-link">生命周期</a>
+    <a href="/2018/12/01/ComponentLife" class="sidebar-link">Life</a>
     <div class="sidebar-br"></div>
     <a href="/2018/12/01/ComponentMethod" class="sidebar-link">Method</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentImport" class="sidebar-link">复合组件</a>
+    <a href="/2018/12/01/ComponentImport" class="sidebar-link">Composite Component</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">调试模式</a>
-    <h3>扩展</h3>
-    <a href="/2018/12/01/plugin" class="sidebar-link">插件</a>
-    <h3>高级</h3>
-    <a href="/2018/12/01/version" class="sidebar-link">版本</a>
+    <a href="/2018/12/01/ComponentDebug" class="sidebar-link">Debug Mode</a>
+    <h3>Expansion</h3>
+    <a href="/2018/12/01/plugin" class="sidebar-link">Plugin</a>
+    <h3>Advanced</h3>
+    <a href="/2018/12/01/version" class="sidebar-link">Version</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/config" class="sidebar-link">配置</a>
+    <a href="/2018/12/01/config" class="sidebar-link">Config</a>
     <div class="sidebar-br"></div>
-    <a href="/2018/12/01/filter" class="sidebar-link">过滤器</a>
-    <h3>内在</h3>
-    <a href="/2018/12/01/deepInRespond" class="sidebar-link">深入响应式原理</a>
-    <h3>更多</h3>
-    <a href="/2018/12/01/Comparison" class="sidebar-link">对比其他框架</a>
+    <a href="/2018/12/01/filter" class="sidebar-link">Filter</a>
+    <h3>Inner</h3>
+    <a href="/2018/12/01/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
+    <h3>More</h3>
+    <a href="/2018/12/01/Comparison" class="sidebar-link">Compare Other Framework</a>
 </div>
 
 <script>
@@ -186,25 +186,25 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="组件对象"><a href="#组件对象" class="headerlink" title="组件对象"></a>组件对象</h1><h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>当你每次 <code>render</code> 一个组件时，Ale 都会返回一个 <code>Ale组件对象</code>，你可以定义一个变量来接收它：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/* 定义一个变量接收 Ale组件对象 */</span><br><span class="line">var app = Ale.render(&quot;test&quot;, &#123;</span><br><span class="line">    /* ...... */</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+    <section class="markdown-content"><h1 id="Component-object"><a href="#Component-object" class="headerlink" title="Component object"></a>Component object</h1><h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><p>Whenever you <code>render</code> a component, Ale will return a <code>Ale component object</code>, you can define a variable to receive it:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/* Define a variable to receive an Ale component object */</span><br><span class="line">var app = Ale.render(&quot;test&quot;, &#123;</span><br><span class="line">    /* ...... */</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p id="app" class="demo"></p>
 
-<p>让我们点击上方实例，你将会看到它在控制台中输出了它自己的<code>Ale组件对象</code>。</p>
-<h3 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h3><p>可是这造成了一个问题，如果我们的组件需要动态渲染，那我们怎么获取它的 <code>Ale组件对象</code> 呢？</p>
-<p>很简单，只需要在支持函数的属性中使用 <code>this</code> 关键字即可获取 <strong>（由于<code>template</code>属性比较特殊，自动绑定的是<code>this.data</code>，所以在template属性中使用<code>this</code>代指的是<code>this.data</code>）</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* 定义一个组件 */</span><br><span class="line">Ale(&quot;test&quot;, &#123;</span><br><span class="line">    life: &#123;</span><br><span class="line">        mounting: function()&#123;</span><br><span class="line">            console.log(this) /* 这里this代指渲染完成之后的Ale组件对象 */</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>在上方实例中，可能你还不了解<code>life</code>属性的作用，不过我们就是给你演示一下如何使用，具体细节请继续往下查看教程！</p>
-<p>目前全部支持函数的属性：</p>
+<p>Let’s click on the example above and you will see it output its own <code>Ale component object</code> in the console.</p>
+<h3 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h3><p>But this creates a problem. If our component needs dynamic rendering, how do we get its <code>Ale component object</code>?</p>
+<p>Very simple, you only need to use the <code>this</code> keyword in the properties of the support function to get <strong>(because the <code>template</code> property is special, the automatic binding is <code>this.data</code>, so use <code>this in the template property.</code>The representative refers to <code>this.data</code>)</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* Define a component */</span><br><span class="line">Ale(&quot;test&quot;, &#123;</span><br><span class="line">    life: &#123;</span><br><span class="line">        mounting: function()&#123;</span><br><span class="line">            console.log(this) /* Here this refers to the Ale component object after rendering is completed. */</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>In the above example, you may not understand the role of the <code>life</code> attribute, but we will show you how to use it. For details, please continue to view the tutorial!</p>
+<p>Currently all the properties of the supported function:</p>
 <ul>
-<li>template <strong>（由于<code>template</code>属性比较特殊，自动绑定的是<code>this.data</code>，所以在template属性中使用<code>this</code>代指的是<code>this.data</code>）</strong></li>
-<li>life <strong>（life属性本身不支持函数，但是它内部的属性全部支持函数）</strong></li>
-<li>debug <strong>（debug属性本身不支持函数，但是它内部的属性全部支持函数。<span style="color:red">不过注意，debug内部的函数<em>不会</em>绑定this</span>）</strong></li>
+<li>template <strong>(Because the <code>template</code> attribute is special, it is automatically bound to <code>this.data</code>, so using <code>this</code> in the template attribute refers to <code>this.data</code>)</strong></li>
+<li>life <strong>(the life attribute itself does not support functions, but its internal properties all support functions)</strong></li>
+<li>debug <strong>(The debug property itself does not support functions, but its internal properties all support functions. <span style="color:red"> However, note that the internal function of debug will not bind this</span>)</strong></li>
 </ul>
 <script src="../../../../js/ale.min.js"></script>
 <script>
 Ale("aleComObj", {
-    template: "<button onclick='console.log(app)'>点我在控制台中输出我的：Ale组件对象</button>"
+    template: "<button onclick='console.log(app)'>Click me to output my Ale component object in the console</button>"
 })
 var app = Ale.render("aleComObj", {
     el: "#app"
@@ -284,7 +284,7 @@ var app = Ale.render("aleComObj", {
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "组件对象",
+        id: "Component object",
         owner: "",
         repo: "",
         oauth: {
