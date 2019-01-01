@@ -185,12 +185,12 @@
       </div>
     
       <div class="section-list-item">
-        <a href="/2018/12/01/ComponentMethod/" class="archive-title">Method</a>
+        <a href="/2018/12/01/ComponentLife/" class="archive-title">Life</a>
         <p class="archive-date">12-01</p>
       </div>
     
       <div class="section-list-item">
-        <a href="/2018/12/01/ComponentLife/" class="archive-title">Life</a>
+        <a href="/2018/12/01/ComponentMethod/" class="archive-title">Method</a>
         <p class="archive-date">12-01</p>
       </div>
     
@@ -205,12 +205,12 @@
       </div>
     
       <div class="section-list-item">
-        <a href="/2018/12/01/ComponentData/" class="archive-title">Data</a>
+        <a href="/2018/12/01/ComponentDebug/" class="archive-title">Debug mode</a>
         <p class="archive-date">12-01</p>
       </div>
     
       <div class="section-list-item">
-        <a href="/2018/12/01/ComponentDebug/" class="archive-title">Debug mode</a>
+        <a href="/2018/12/01/ComponentData/" class="archive-title">Data</a>
         <p class="archive-date">12-01</p>
       </div>
     
@@ -295,9 +295,13 @@
         }
         return relUrl;
     }
-    if(GetUrlRelativePath() === "/" || GetUrlRelativePath() === "/guide/" || GetUrlRelativePath().substr(0,6) === "/2018/" || GetUrlRelativePath().substr(0,6) === "/2019/"){
+    var thisPageURL = GetUrlRelativePath();
+    if(thisPageURL === "/" || thisPageURL === "/guide/" || thisPageURL.substr(0,6) === "/2018/" || thisPageURL.substr(0,6) === "/2019/"){
         $(".app-footer").remove();
     }
+
+    var allNAVBarEl = document.querySelectorAll('.right-list .list-item');
+    allNAVBarEl[allNAVBarEl.length - 1].children[0].setAttribute("href", "http://cn.alejs.org" + thisPageURL)
 </script>
 
 <!-- Baidu Tongji -->
