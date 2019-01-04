@@ -227,27 +227,6 @@
   </entry>
   
   <entry>
-    <title>In-depth responsive principle</title>
-    <link href="http://www.alejs.org/2018/12/01/deepInRespond/"/>
-    <id>http://www.alejs.org/2018/12/01/deepInRespond/</id>
-    <published>2018-11-30T16:00:00.000Z</published>
-    <updated>2019-01-03T04:18:46.921Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="In-depth-responsive-principle"><a href="#In-depth-responsive-principle" class="headerlink" title="In-depth responsive principle"></a>In-depth responsive principle</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Ale adds setters and getters to objects using ES5’s new <code>defineProperty</code> property. At the same time Object.defineProperty is a feature in ES5 that cannot be shim, not syntactic sugar, which is why Ale does not support IE8 and lower browsers.</p><h3 id="Limit"><a href="#Limit" class="headerlink" title="Limit"></a>Limit</h3><p>Affected by modern JavaScript (and <code>Object.observe</code> has also been deprecated), Ale <strong>cannot detect the addition or deletion of object properties</strong>. Since Ale will perform a getter/setter conversion procedure on the property when it initializes the instance, the property must exist on the data object in order for Ale to convert it so that it is responsive. E.g:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data.a = <span class="number">2</span>; <span class="comment">/* Responsive */</span></span><br><span class="line"></span><br><span class="line">data.b = <span class="number">2</span>; <span class="comment">/* Non-responsive */</span></span><br></pre></td></tr></table></figure><p>So when you set the data, <strong>Required</strong> sets the value that needs to have responsive effect data, even if it’s just a null value:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="string">''</span> <span class="comment">/* Need to be set to empty here */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Specific"><a href="#Specific" class="headerlink" title="Specific"></a>Specific</h3><p>When you trigger the setter (when the operation data is updated), Ale first updates the data, then calculates the updated attribute results and updates them in a loop.</p><p><br></p><p>Among them, the <code>template</code> attribute is special. When the data update is completed, Ale will call the function of <code>diff</code> algorithm and generate a <code>pseudo DOM structure</code>. Ale’s diff algorithm will compare <code>pseudo DOM structure</code> and <code>reality. The difference between DOM structure</code> and only update DOM elements with differences.</p><p><br></p><p>In addition, the diff comparison will only be done in the peer DOM. Once a level change occurs, Ale will not continue to compare, but update the entire layer directly. This can effectively increase the contrast performance of diff and reduce the time of comparison.</p><p><br></p><p>Another point is that Ale’s <code>diff</code> algorithm only compares whether the element’s <code>content</code> \ <code>id</code> \ <code>class</code> \ <code>name</code> attribute is the same, that is, when you dynamically update for example <code>onclick</code> The properties of the class, the <code>diff</code> algorithm does not compare the differences, and the elements are not updated. At this point you can manually turn off the <code>diff</code> algorithm when the element is updated and open it when the element update is complete!</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;In-depth-responsive-principle&quot;&gt;&lt;a href=&quot;#In-depth-responsive-principle&quot; class=&quot;headerlink&quot; title=&quot;In-depth responsive principle&quot;&gt;&lt;/a
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Filter</title>
     <link href="http://www.alejs.org/2018/12/01/filter/"/>
     <id>http://www.alejs.org/2018/12/01/filter/</id>
@@ -261,6 +240,27 @@
       
       
         &lt;h1 id=&quot;Filter&quot;&gt;&lt;a href=&quot;#Filter&quot; class=&quot;headerlink&quot; title=&quot;Filter&quot;&gt;&lt;/a&gt;Filter&lt;/h1&gt;&lt;h3 id=&quot;filter-function&quot;&gt;&lt;a href=&quot;#filter-function&quot; class
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>In-depth responsive principle</title>
+    <link href="http://www.alejs.org/2018/12/01/deepInRespond/"/>
+    <id>http://www.alejs.org/2018/12/01/deepInRespond/</id>
+    <published>2018-11-30T16:00:00.000Z</published>
+    <updated>2019-01-03T04:18:46.921Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="In-depth-responsive-principle"><a href="#In-depth-responsive-principle" class="headerlink" title="In-depth responsive principle"></a>In-depth responsive principle</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Ale adds setters and getters to objects using ES5’s new <code>defineProperty</code> property. At the same time Object.defineProperty is a feature in ES5 that cannot be shim, not syntactic sugar, which is why Ale does not support IE8 and lower browsers.</p><h3 id="Limit"><a href="#Limit" class="headerlink" title="Limit"></a>Limit</h3><p>Affected by modern JavaScript (and <code>Object.observe</code> has also been deprecated), Ale <strong>cannot detect the addition or deletion of object properties</strong>. Since Ale will perform a getter/setter conversion procedure on the property when it initializes the instance, the property must exist on the data object in order for Ale to convert it so that it is responsive. E.g:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data.a = <span class="number">2</span>; <span class="comment">/* Responsive */</span></span><br><span class="line"></span><br><span class="line">data.b = <span class="number">2</span>; <span class="comment">/* Non-responsive */</span></span><br></pre></td></tr></table></figure><p>So when you set the data, <strong>Required</strong> sets the value that needs to have responsive effect data, even if it’s just a null value:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="string">''</span> <span class="comment">/* Need to be set to empty here */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Specific"><a href="#Specific" class="headerlink" title="Specific"></a>Specific</h3><p>When you trigger the setter (when the operation data is updated), Ale first updates the data, then calculates the updated attribute results and updates them in a loop.</p><p><br></p><p>Among them, the <code>template</code> attribute is special. When the data update is completed, Ale will call the function of <code>diff</code> algorithm and generate a <code>pseudo DOM structure</code>. Ale’s diff algorithm will compare <code>pseudo DOM structure</code> and <code>reality. The difference between DOM structure</code> and only update DOM elements with differences.</p><p><br></p><p>In addition, the diff comparison will only be done in the peer DOM. Once a level change occurs, Ale will not continue to compare, but update the entire layer directly. This can effectively increase the contrast performance of diff and reduce the time of comparison.</p><p><br></p><p>Another point is that Ale’s <code>diff</code> algorithm only compares whether the element’s <code>content</code> \ <code>id</code> \ <code>class</code> \ <code>name</code> attribute is the same, that is, when you dynamically update for example <code>onclick</code> The properties of the class, the <code>diff</code> algorithm does not compare the differences, and the elements are not updated. At this point you can manually turn off the <code>diff</code> algorithm when the element is updated and open it when the element update is complete!</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;In-depth-responsive-principle&quot;&gt;&lt;a href=&quot;#In-depth-responsive-principle&quot; class=&quot;headerlink&quot; title=&quot;In-depth responsive principle&quot;&gt;&lt;/a
       
     
     </summary>
