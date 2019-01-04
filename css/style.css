@@ -113,6 +113,10 @@ pre {
   max-height: 150px;
   width: 250px;
 }
+#sidebar-inner-tran {
+  position: relative;
+  bottom: 15px;
+}
 #guide-findBug {
   display: block;
   height: 35px;
