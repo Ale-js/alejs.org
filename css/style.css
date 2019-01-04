@@ -108,6 +108,11 @@ pre {
   width: 400px;
   height: 400px;
 }
+#sidebar-ad {
+  height: auto;
+  max-height: 150px;
+  width: 250px;
+}
 #guide-findBug {
   display: block;
   height: 35px;
@@ -198,7 +203,7 @@ pre {
   overflow-y: auto;
 }
 .app-sidebar-inner {
-  width: 240px;
+  width: 250px;
   padding: 20px 20px 60px 60px;
 }
 .app-body {
