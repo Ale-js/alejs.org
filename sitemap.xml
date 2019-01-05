@@ -2,107 +2,107 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.alejs.org/2018/12/01/Introduction/</loc>
+    <loc>http://www.alejs.org/guide/v1/version/</loc>
     
-    <lastmod>2019-01-05T00:12:03.016Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.alejs.org/2018/12/01/version/</loc>
-    
-    <lastmod>2019-01-03T04:19:34.520Z</lastmod>
+    <lastmod>2019-01-05T01:55:54.822Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.alejs.org/2018/12/01/plugin/</loc>
+    <loc>http://www.alejs.org/guide/v1/plugin/</loc>
     
-    <lastmod>2019-01-03T04:19:31.741Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.alejs.org/2018/12/01/Install/</loc>
-    
-    <lastmod>2019-01-03T04:19:01.352Z</lastmod>
+    <lastmod>2019-01-05T01:55:49.221Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.alejs.org/2018/12/01/filter/</loc>
+    <loc>http://www.alejs.org/guide/v1/Introduction/</loc>
     
-    <lastmod>2019-01-03T04:18:53.415Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.alejs.org/2018/12/01/deepInRespond/</loc>
-    
-    <lastmod>2019-01-03T04:18:46.921Z</lastmod>
+    <lastmod>2019-01-05T01:55:43.227Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.alejs.org/2018/12/01/config/</loc>
+    <loc>http://www.alejs.org/guide/v1/Install/</loc>
     
-    <lastmod>2019-01-03T04:18:36.481Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.alejs.org/2018/12/01/ComponentObj/</loc>
-    
-    <lastmod>2019-01-03T04:18:32.855Z</lastmod>
+    <lastmod>2019-01-05T01:55:39.518Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.alejs.org/2018/12/01/ComponentMethod/</loc>
+    <loc>http://www.alejs.org/guide/v1/filter/</loc>
     
-    <lastmod>2019-01-03T04:18:22.040Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.alejs.org/2018/12/01/ComponentLife/</loc>
-    
-    <lastmod>2019-01-03T04:18:04.514Z</lastmod>
+    <lastmod>2019-01-05T01:55:35.506Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.alejs.org/2018/12/01/ComponentImport/</loc>
+    <loc>http://www.alejs.org/guide/v1/deepInRespond/</loc>
     
-    <lastmod>2019-01-03T04:17:54.446Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.alejs.org/2018/12/01/ComponentFoundation/</loc>
-    
-    <lastmod>2019-01-03T04:17:42.462Z</lastmod>
+    <lastmod>2019-01-05T01:55:27.100Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.alejs.org/2018/12/01/ComponentDebug/</loc>
+    <loc>http://www.alejs.org/guide/v1/config/</loc>
     
-    <lastmod>2019-01-03T04:17:25.027Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.alejs.org/2018/12/01/ComponentData/</loc>
-    
-    <lastmod>2019-01-03T04:17:17.009Z</lastmod>
+    <lastmod>2019-01-05T01:55:21.891Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.alejs.org/2018/12/01/Comparison/</loc>
+    <loc>http://www.alejs.org/guide/v1/ComponentObj/</loc>
     
-    <lastmod>2019-01-03T04:17:03.662Z</lastmod>
+    <lastmod>2019-01-05T01:55:18.607Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/guide/v1/ComponentMethod/</loc>
+    
+    <lastmod>2019-01-05T01:55:15.363Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/guide/v1/ComponentLife/</loc>
+    
+    <lastmod>2019-01-05T01:55:12.321Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/guide/v1/ComponentImport/</loc>
+    
+    <lastmod>2019-01-05T01:55:09.100Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/guide/v1/ComponentFoundation/</loc>
+    
+    <lastmod>2019-01-05T01:55:05.867Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/guide/v1/ComponentDebug/</loc>
+    
+    <lastmod>2019-01-05T01:55:02.325Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/guide/v1/ComponentData/</loc>
+    
+    <lastmod>2019-01-05T01:54:58.091Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.alejs.org/guide/v1/Comparison/</loc>
+    
+    <lastmod>2019-01-05T01:54:48.965Z</lastmod>
     
   </url>
   

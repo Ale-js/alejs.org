@@ -9,7 +9,7 @@
     
     <title>
         
-        Guide |
+        In-depth responsive principle |
         Ale.js
         
     </title>
@@ -125,10 +125,9 @@
   </div>
 </header>
 
-    <main class="app-main">
     <div class="app-sidebar">
-        <div class="app-sidebar-inner">
-            <div id="sidebar-ad">
+    <div class="app-sidebar-inner">
+        <div id="sidebar-ad">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gw-3+1f-3d+2z" data-ad-client="ca-pub-3771109326576181" data-ad-slot="2033609545"></ins>
     <script>
@@ -187,24 +186,134 @@
     }
 </script>
 
-        </div>
     </div>
-    <div class="app-body">
-        <article class="article-card">
-            <br>
-            <h2 class="article-head">
-                Welcome!
-            </h2>
-            <h3>Choose a tutorial and start learning!</h3>
-        </article>
+</div>
+<main class="app-body flex-box guide-main">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="In-depth-responsive-principle"><a href="#In-depth-responsive-principle" class="headerlink" title="In-depth responsive principle"></a>In-depth responsive principle</h1><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Ale adds setters and getters to objects using ES5’s new <code>defineProperty</code> property. At the same time Object.defineProperty is a feature in ES5 that cannot be shim, not syntactic sugar, which is why Ale does not support IE8 and lower browsers.</p>
+<h3 id="Limit"><a href="#Limit" class="headerlink" title="Limit"></a>Limit</h3><p>Affected by modern JavaScript (and <code>Object.observe</code> has also been deprecated), Ale <strong>cannot detect the addition or deletion of object properties</strong>. Since Ale will perform a getter/setter conversion procedure on the property when it initializes the instance, the property must exist on the data object in order for Ale to convert it so that it is responsive. E.g:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data.a = <span class="number">2</span>; <span class="comment">/* Responsive */</span></span><br><span class="line"></span><br><span class="line">data.b = <span class="number">2</span>; <span class="comment">/* Non-responsive */</span></span><br></pre></td></tr></table></figure>
+<p>So when you set the data, <strong>Required</strong> sets the value that needs to have responsive effect data, even if it’s just a null value:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="string">''</span> <span class="comment">/* Need to be set to empty here */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Specific"><a href="#Specific" class="headerlink" title="Specific"></a>Specific</h3><p>When you trigger the setter (when the operation data is updated), Ale first updates the data, then calculates the updated attribute results and updates them in a loop.</p>
+<p><br></p>
+<p>Among them, the <code>template</code> attribute is special. When the data update is completed, Ale will call the function of <code>diff</code> algorithm and generate a <code>pseudo DOM structure</code>. Ale’s diff algorithm will compare <code>pseudo DOM structure</code> and <code>reality. The difference between DOM structure</code> and only update DOM elements with differences.</p>
+<p><br></p>
+<p>In addition, the diff comparison will only be done in the peer DOM. Once a level change occurs, Ale will not continue to compare, but update the entire layer directly. This can effectively increase the contrast performance of diff and reduce the time of comparison.</p>
+<p><br></p>
+<p>Another point is that Ale’s <code>diff</code> algorithm only compares whether the element’s <code>content</code> \ <code>id</code> \ <code>class</code> \ <code>name</code> attribute is the same, that is, when you dynamically update for example <code>onclick</code> The properties of the class, the <code>diff</code> algorithm does not compare the differences, and the elements are not updated. At this point you can manually turn off the <code>diff</code> algorithm when the element is updated and open it when the element update is complete!</p>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+    <br>
+    <div id="guide-findBug">
+        Found some errors? <a href="https://github.com/Ale-js/alejs.org">Edit on Github!</a>
     </div>
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
 </main>
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
 <script>
-    var el = document.querySelectorAll("pre");
-    for(var i = 0;i<el.length;i++){
-        hljs.highlightBlock(el[i]);
+  (function () {
+    var url = 'http://www.alejs.org/guide/v1/deepInRespond/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
     }
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "In-depth responsive principle",
+        owner: "",
+        repo: "",
+        oauth: {
+          client_id: "",
+          client_secret: ""
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://www.alejs.org/guide/v1/deepInRespond/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
 
     <div class="scroll-top">

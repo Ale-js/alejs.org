@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="description" content="The creator of Ale.js.">
+    <meta name="keyword" content="">
+    
+    <link rel="shortcut icon" href="/css/images/logo.png">
+    
+    <title>
+        
+        Compare other frameworks |
+        Ale.js
+        
+    </title>
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+    <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+    <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+    
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+    <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Ale.js</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Index</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/guide/" class="item-link">Guide</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="https://cn.alejs.org" class="item-link">中文</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Index</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/guide/" class="menu-link">Guide</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="https://cn.alejs.org" class="menu-link">中文</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div class="app-sidebar">
+    <div class="app-sidebar-inner">
+        <div id="sidebar-ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gw-3+1f-3d+2z" data-ad-client="ca-pub-3771109326576181" data-ad-slot="2033609545"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<div id="sidebar-inner-tran">
+    <h2>Guide</h2>
+    <select id="select-version" style="outline: none;">
+        <option selected value="1.X">1.0-Beta.1+</option>
+    </select>
+
+
+    <div id="v1X">
+        <h3>Foundation</h3>
+        <a href="/guide/v1/Introduction" class="sidebar-link">Introduction</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/Install" class="sidebar-link">Install</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentFoundation" class="sidebar-link">Component Foundation</a>
+        <h3>In-depth Component</h3>
+        <a href="/guide/v1/ComponentObj" class="sidebar-link">Component object</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentData" class="sidebar-link">Data</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentLife" class="sidebar-link">Life</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentMethod" class="sidebar-link">Method</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentImport" class="sidebar-link">Composite Component</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode</a>
+        <h3>Expansion</h3>
+        <a href="/guide/v1/plugin" class="sidebar-link">Plugin</a>
+        <h3>Advanced</h3>
+        <a href="/guide/v1/version" class="sidebar-link">Version</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/config" class="sidebar-link">Config</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/filter" class="sidebar-link">Filter</a>
+        <h3>Inner</h3>
+        <a href="/guide/v1/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
+        <h3>More</h3>
+        <a href="/guide/v1/Comparison" class="sidebar-link">Compare Other Framework</a>
+    </div>
+</div>
+
+<script>
+    document.querySelector("#select-version").onchange = function() {
+        switch (document.querySelector("#select-version").value) {
+            case "1.X":
+                document.querySelector("#v1X").style.display = "block";
+                break;
+        }
+    }
+</script>
+
+    </div>
+</div>
+<main class="app-body flex-box guide-main">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="Compare-other-frameworks"><a href="#Compare-other-frameworks" class="headerlink" title="Compare other frameworks"></a>Compare other frameworks</h1><p>Welcome to this page, we believe that the purpose of coming here is to understand the difference between Ale and other large frameworks, which is exactly what we want to answer here.</p>
+<p>Objectively speaking, as the core developer of Ale, we will definitely prefer Ale, and think it would be better to solve it with Ale for some problems. But here, we want to describe everything as fair and accurate as possible. Other frameworks have significant advantages, such as React’s vast ecosystem, or like Angular and Vue, which have numerous solutions for large projects. We will try to list all of them.</p>
+<p><br></p>
+<p>We also want to get help from ** to keep the documentation up to date, because the world of JavaScript is progressing too fast. If you notice an inaccurate or seemingly incorrect place, please submit a question for let us know.</p>
+<p><br></p>
+<h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><p>React and Ale are almost identical. In fact, React is the inspiration for the early Ale, they all have:</p>
+<ul>
+<li>Update only the necessary [use <strong>diff</strong> algorithm] when status (data) is updated</li>
+<li>Provides view components for <strong>responsive</strong> and <strong>componentized</strong>.</li>
+<li>Focus on the core library and pass other functions to the relevant libraries.</li>
+</ul>
+<p>Because there are many similarities, we will spend more time comparing them in this block. Here we not only guarantee the accuracy of the technical content, but also take into account the balance considerations. We need to recognize where React is better than Ale, such as a richer ecosystem.</p>
+<h4 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h4><p>Here we only tested for <strong>component definition</strong> and <strong>component rendering</strong>, so the test results do not represent full performance. But what is certain is that Ale outperforms React in both respects: (defining a component and rendering 1000 elements)</p>
+<ul>
+<li>Ale: 46~52 (ms)</li>
+<li>React: 307~336 (ms)</li>
+</ul>
+<p>Of course, we also did a test on responsive dynamic rendering, which showed that Ale performed dynamic rendering 2.5 times faster than React.</p>
+<p>The reason for the slowness of React may be due to the fact that we use <code>Babel</code> for dynamic rendering. But don’t forget, Ale doesn’t need to compile. If you compile React ahead of time, this will be unfair to Ale.</p>
+<h4 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML &amp; CSS"></a>HTML &amp; CSS</h4><p>In React, everything is JavaScript. Not only can HTML be expressed in JSX, but the trend is now increasingly incorporating CSS into JavaScript. This type of approach has its advantages, but there are some trade-offs that are not acceptable to every developer.</p>
+<p>Ale’s overall idea is to embrace and extend the classic Web technologies. We will analyze it in detail below.</p>
+<h5 id="JSX-vs-Templates"><a href="#JSX-vs-Templates" class="headerlink" title="JSX vs Templates"></a>JSX vs Templates</h5><p>In React, the rendering capabilities of all components rely on JSX. JSX is a syntactic sugar for writing JavaScript using XML syntax.</p>
+<p>Using JSX has the following advantages:</p>
+<ul>
+<li>You can build your view page using the full programming language JavaScript functionality. For example, you can use temporary variables, JS’s own flow control, and directly reference the values ​​in the current JS scope.</li>
+<li>Development tools support JSX is more advanced than other available Ale templates (eg, linting, type checking, editor auto-completion).</li>
+</ul>
+<p>But in fact, Ale also provides rendering functions, and even Ale abandons the traditional Mustache (JSX) template and chooses a less popular rendering function, which includes the following aspects:</p>
+<ul>
+<li>Depends on JavaScript’s own complete compiler, so we no longer need to manually write the template rendering function, which can effectively improve the overall speed of Ale template compilation, because the rendering function is closer to the JavaScript compiler itself than the template engine.</li>
+<li>When you add a JavaScript expression to a JSX template, some compilers don’t have a corresponding syntax hint. At the same time, in some scenarios, you really need the ability to fully program JavaScript.</li>
+</ul>
+<h4 id="Scale"><a href="#Scale" class="headerlink" title="Scale"></a>Scale</h4><h5 id="Expanding-up"><a href="#Expanding-up" class="headerlink" title="Expanding up"></a>Expanding up</h5><p>Well, to be honest, Ale is really not designed for large applications. We designed it to be able to handle almost all small and medium-sized applications.</p>
+<p>In contrast, React provides powerful routing for large applications. And the React community is very innovative in terms of state management (such as Flux, Redux), which Ale can’t match.</p>
+<h5 id="Downward-expansion"><a href="#Downward-expansion" class="headerlink" title="Downward expansion"></a>Downward expansion</h5><p>The React learning curve is steep, and you need to know JSX and ES2015 before you start learning React, because many examples use these syntaxes. You need to learn to build the system, although you can technically compile the code in real time with Babel, but this is not recommended for production environments.</p>
+<p>However, Ale expands down to be very similar to jQuery. Because you just have to put the following tags on the page to run:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"ale.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Then you can write the Ale code and apply it to production. You just need to replace it with the min version of the Ale file without worrying about other performance issues.</p>
+<p>Since Ale’s start-up phase doesn’t require any complex knowledge points, such as ES2015 and JSX, developers can build simple applications in less than half an hour by reading the guide.</p>
+<h4 id="Native-rendering"><a href="#Native-rendering" class="headerlink" title="Native rendering"></a>Native rendering</h4><p>React Native enables you to write native rendering capabilities for apps (iOS and Android) using the same component model. Being able to develop across multiple platforms at the same time is great for developers. In contrast, Ale is a bit weaker in this regard. But we didn’t stop here. As Ale slowly develops, these build systems will be released accordingly, so stay tuned.</p>
+<h4 id="Volume"><a href="#Volume" class="headerlink" title="Volume"></a>Volume</h4><p>Compared to React, Ale is extremely lightweight. Ale’s compressed files (not g-zip) [including APIs for manipulating DOM] are only about <strong>8kb</strong> size, while React’s core library plus DOM library is amazing<em> </em>108kb**.</p>
+<h4 id="Preact-and-other-classes-React-library"><a href="#Preact-and-other-classes-React-library" class="headerlink" title="Preact and other classes React library"></a>Preact and other classes React library</h4><p>The libraries of the class React often share API and ecology with React as much as possible. Therefore the above comparison is equally applicable to them. They differ from React in that they have a smaller ecology and higher performance. However, because these libraries are not 100% compatible with all of the React ecosystem, some tools and auxiliary libraries may not be available. Or even if it seems to work, there may be incompatibility at any time, unless the React library you use is officially consistent with React.</p>
+<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p>It is time to compare the most important frameworks. Earlier we said that React was the inspiration for early Ale. In fact, Ale’s more inspiration comes from Vue, which is why some of the features and APIs provided by Ale are very similar to Vue.</p>
+<p>However, although Ale and Vue have similarities in some places, we recommend that you install both Ale and Vue, because Vue can make Ale’s development more efficient. But if you don’t want to do this, you can just install a framework.</p>
+<h4 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h4><p>Ale.js is much simpler than Vue in both API and design, and is more suitable for beginners to learn, so you can quickly master all of its features and invest in development.</p>
+<h4 id="Flexibility-and-componentization"><a href="#Flexibility-and-componentization" class="headerlink" title="Flexibility and componentization"></a>Flexibility and componentization</h4><p>Compared to Angular, Vue.js is a more flexible and open solution. But in Ale, this situation will change.</p>
+<p>In fact, Vue enforces one-way data flow between different components, which makes the data flow in the application clearer and easier to understand, but it also limits the flexibility between components. In Ale, there are only composite components, and there are no parent and child components, and any component in the composite component can interoperate because they share a set of data.</p>
+<h4 id="Performance-1"><a href="#Performance-1" class="headerlink" title="Performance"></a>Performance</h4><p>Here we are the same as React, and only tested for <strong>component definition</strong> and <strong>component rendering</strong>, so the test results do not represent the performance of all operations. But what is certain is that Ale outperforms Vue in both respects: (defining a component and rendering 1000 elements)</p>
+<ul>
+<li>Ale: 46~52 (ms)</li>
+<li>Vue: 181~228 (ms)</li>
+</ul>
+<h4 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h4><p>Vue provides an official type declaration and component decorator for TS, but not everyone wants to use TS. In small and medium-sized projects, the introduction of TS may not bring much obvious advantages. In these cases, using Ale would be a better choice.</p>
+<h4 id="Volume-1"><a href="#Volume-1" class="headerlink" title="Volume"></a>Volume</h4><p>The separate vue.min.js file has a size of <strong>88kb</strong>, while Ale has a size of only about <strong>8kb</strong>, which is relatively lightweight compared to Vue.</p>
+<h4 id="learning-curve"><a href="#learning-curve" class="headerlink" title="learning curve"></a>learning curve</h4><p>In this regard, both frameworks are similar, except that you need to have a good HTML and JavaScript foundation. With these basic skills, you can invest in development very quickly through the reading guide.</p>
+<p>But specifically, Vue’s API area is much larger than Ale, so you need to understand more concepts to get productive. Of course, the complexity of Vue itself is because it is designed to target large, complex applications. But it is undeniable that this also makes it quite unfriendly to developers who are not experienced enough.</p>
+<h3 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h3><p>Of course, the editors don’t know much about Angular, so they don’t make a good comparison. Here, we hope that more experienced developers can help us write articles comparing Angular. You can click on the <strong>Edit page</strong> below, then go to Github to submit, thank you for your support and understanding!</p>
+<h3 id="Supplement"><a href="#Supplement" class="headerlink" title="Supplement"></a>Supplement</h3><p>In fact, there is one more thing to add in terms of performance, because Vue and React use virtual DOM and diff algorithms. Ale actually traverses the real DOM tree directly, and then uses the diff algorithm to compare the differences. This is similar to Angular’s dirty check, and performance is affected. However, this approach also eliminates the need to create a virtual DOM tree.</p>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+    <br>
+    <div id="guide-findBug">
+        Found some errors? <a href="https://github.com/Ale-js/alejs.org">Edit on Github!</a>
+    </div>
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://www.alejs.org/guide/v1/Comparison/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Compare other frameworks",
+        owner: "",
+        repo: "",
+        oauth: {
+          client_id: "",
+          client_secret: ""
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = '';
+  
+  var disqus_url = 'http://www.alejs.org/guide/v1/Comparison/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+    <p class="copyright">
+        &copy;
+        2019 | Released under the MIT License
+        <br>
+        Create by <a href="https://github.com/17310415421">Bill Dong</a>
+    </p>
+</footer>
+
+<script type="text/javascript" src="//js.users.51.la/19824665.js"></script>
+
+<script>
+    function async (u, c) {
+        var d = document,
+            t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function(e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+<script>
+    async ("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function() {
+        FastClick.attach(document.body);
+    })
+</script>
+
+<script>
+    var hasLine = 'true';
+    async ("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function() {
+        $('figure pre').each(function(i, block) {
+            var figure = $(this).parents('figure');
+            if (hasLine === 'false') {
+                figure.find('.gutter').hide();
+            }
+            var lang = figure.attr('class').split(' ')[1] || 'code';
+            var codeHtml = $(this).html();
+            var codeTag = document.createElement('code');
+            codeTag.className = lang;
+            codeTag.innerHTML = codeHtml;
+            $(this).attr('class', '').empty().html(codeTag);
+            figure.attr('data-lang', lang.toUpperCase());
+            hljs.highlightBlock(block);
+        });
+    })
+</script>
+
+<script>
+    function GetUrlRelativePath() {
+        var url = document.location.toString();
+        var arrUrl = url.split("//");
+
+        var start = arrUrl[1].indexOf("/");
+        var relUrl = arrUrl[1].substring(start); //stop省略，截取从start开始到结尾的所有字符
+
+        if (relUrl.indexOf("?") != -1) {
+            relUrl = relUrl.split("?")[0];
+        }
+        return relUrl;
+    }
+    var thisPageURL = GetUrlRelativePath();
+    if(thisPageURL === "/" || thisPageURL === "/guide/" || thisPageURL.substr(0,6) === "/2018/" || thisPageURL.substr(0,6) === "/2019/"){
+        $(".app-footer").remove();
+    }
+
+    var allNAVBarEl = document.querySelectorAll('.right-list .list-item');
+    allNAVBarEl[allNAVBarEl.length - 1].children[0].setAttribute("href", "https://cn.alejs.org" + thisPageURL)
+</script>
+
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>
