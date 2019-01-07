@@ -244,7 +244,7 @@
         return relUrl;
     }
     var thisPageURL = GetUrlRelativePath();
-    if(thisPageURL === "/" || thisPageURL === "/guide/" || thisPageURL.substr(0,6) === "/2018/" || thisPageURL.substr(0,6) === "/2019/"){
+    if (thisPageURL === "/" || thisPageURL.substr(0, 7) === "/guide/") {
         $(".app-footer").remove();
     }
 
