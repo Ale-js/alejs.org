@@ -135,12 +135,12 @@
     </script>
 </div>
 
+
 <div id="sidebar-inner-tran">
     <h2>Guide</h2>
     <select id="select-version" style="outline: none;">
-        <option selected value="1.X">1.0-Beta.1+</option>
+        <option selected value="1.X">1.0-Beta.1 - 1.0</option>
     </select>
-
 
     <div id="v1X">
         <h3>Foundation</h3>
@@ -154,21 +154,33 @@
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentData" class="sidebar-link">Data</a>
         <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentStaticData" class="sidebar-link">Static Data<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentLife" class="sidebar-link">Life</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentMethod" class="sidebar-link">Method</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentImport" class="sidebar-link">Composite Component</a>
         <div class="sidebar-br"></div>
-        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode</a>
+        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode<div class="v100-remove"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentProxy" class="sidebar-link">Proxy<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentDataType" class="sidebar-link">Data type decision<div class="v100-add"></div></a>
         <h3>Expansion</h3>
         <a href="/guide/v1/plugin" class="sidebar-link">Plugin</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentWatch" class="sidebar-link">Watch<div class="v100-add"></div></a>
         <h3>Advanced</h3>
         <a href="/guide/v1/version" class="sidebar-link">Version</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/config" class="sidebar-link">Config</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/filter" class="sidebar-link">Filter</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/nextTick" class="sidebar-link">Async DOM<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/other" class="sidebar-link">Other functions<div class="v100-add"></div></a>
         <h3>Inner</h3>
         <a href="/guide/v1/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
         <h3>More</h3>
@@ -192,13 +204,13 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><h4 id="Compatibility"><a href="#Compatibility" class="headerlink" title="Compatibility"></a>Compatibility</h4><p>Ale does not support IE8 and below because Ale uses ECMAScript 5 features that IE8 cannot simulate. But it supports all ECMAScript 5 compliant browsers.</p>
-<h4 id="Update-log"><a href="#Update-log" class="headerlink" title="Update log"></a>Update log</h4><p>Latest stable version: <strong>1.0-Beta.1</strong></p>
+<h4 id="Update-log"><a href="#Update-log" class="headerlink" title="Update log"></a>Update log</h4><p>Latest stable version: <strong>1.0.0</strong></p>
 <p>See the <a href="https://github.com/Ale-js/ale/releases" target="_blank" rel="noopener">GitHub</a> for the update log for each version.</p>
 <h3 id="Directly-introduced-with-lt-script-gt"><a href="#Directly-introduced-with-lt-script-gt" class="headerlink" title="Directly introduced with &lt;script&gt;"></a>Directly introduced with &lt;script&gt;</h3><p>Directly downloaded and introduced with the <code>&lt;script&gt;</code> tag, <code>Ale</code> will be registered as a global variable.</p>
 <p></p><p class="info-box">Do not use uncompressed <code>ale.js</code> files in production versions, otherwise this will slow down your file loading! </p><p></p>
 <p><a href="https://github.com/Ale-js/ale/tree/master/dist" target="_blank" rel="noopener"><button class="post-btn" style="margin-bottom: 15px">development version</button></a><br><a href="https://github.com/Ale-js/ale/releases" target="_blank" rel="noopener"><button class="post-btn">Production version</button></a></p>
 <h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4><p>We recommend linking to a specific version number that you can manually update:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/alejs@1.0.0-beta.1/ale.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/alejs@1.0.0/ale.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Please confirm to understand the different builds and use the production environment version in your published site, replacing <code>ale.js</code> with <code>ale.min.js</code>.</p>
 <h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>NPM installation is recommended when building large applications with Ale, because NPM works well with module wrappers such as webpack or browserify.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Latest stable version</span><br><span class="line"><span class="meta">$</span> npm i alejs</span><br></pre></td></tr></table></figure>

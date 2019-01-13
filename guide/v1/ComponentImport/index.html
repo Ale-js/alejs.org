@@ -135,12 +135,12 @@
     </script>
 </div>
 
+
 <div id="sidebar-inner-tran">
     <h2>Guide</h2>
     <select id="select-version" style="outline: none;">
-        <option selected value="1.X">1.0-Beta.1+</option>
+        <option selected value="1.X">1.0-Beta.1 - 1.0</option>
     </select>
-
 
     <div id="v1X">
         <h3>Foundation</h3>
@@ -154,21 +154,33 @@
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentData" class="sidebar-link">Data</a>
         <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentStaticData" class="sidebar-link">Static Data<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentLife" class="sidebar-link">Life</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentMethod" class="sidebar-link">Method</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentImport" class="sidebar-link">Composite Component</a>
         <div class="sidebar-br"></div>
-        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode</a>
+        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode<div class="v100-remove"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentProxy" class="sidebar-link">Proxy<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentDataType" class="sidebar-link">Data type decision<div class="v100-add"></div></a>
         <h3>Expansion</h3>
         <a href="/guide/v1/plugin" class="sidebar-link">Plugin</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentWatch" class="sidebar-link">Watch<div class="v100-add"></div></a>
         <h3>Advanced</h3>
         <a href="/guide/v1/version" class="sidebar-link">Version</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/config" class="sidebar-link">Config</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/filter" class="sidebar-link">Filter</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/nextTick" class="sidebar-link">Async DOM<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/other" class="sidebar-link">Other functions<div class="v100-add"></div></a>
         <h3>Inner</h3>
         <a href="/guide/v1/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
         <h3>More</h3>
@@ -196,12 +208,12 @@
 <p>Once complete, the <code>test</code> component becomes a composite component.</p>
 <p>So now if we render the <code>test</code> component, it will only output <code>World</code> instead of the <code>HelloWorld</code> we need. At this point we can add the <code>test-1</code> component using the custom tag in the template properties of the <code>test</code> component:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    imports: [<span class="string">"test-1"</span>],</span><br><span class="line">    template: <span class="string">"&lt;test-1/&gt;World"</span> <span class="comment">/* Note that here we render the test-1 component using the &lt;test-1/&gt; format. */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>Among them, we use the <code>&lt;test-1/&gt;</code> format to render the test-1 component, then it should be noted that the custom label can only be used in this format, <strong>even a space can not be added!</strong></p>
+<p>Among them, we use the <code>&lt;test-1/&gt;</code> format to render the test-1 component, then it should be noted that the custom label can only be used for this format, <strong>even a space can not be added!</strong></p>
 <p>Now let’s render this component:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ale.render(<span class="string">"test"</span>, &#123;</span><br><span class="line">    el: <span class="string">"#app"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p class="demo" id="app"></p>
 
-<p>Already working, right? In fact, you can not only import a single component, but also import a composite component:</p>
+<p>Already working, right? In fact, you can not only include a single component, but also include a composite component:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Define a component called test-1 */</span></span><br><span class="line">Ale(<span class="string">"test-1"</span>, &#123;</span><br><span class="line">    template: <span class="string">"Hello"</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Define a component called test-2 */</span></span><br><span class="line">Ale(<span class="string">"test-2"</span>, &#123;</span><br><span class="line">    imports: [<span class="string">"test-1"</span>],</span><br><span class="line">    template: <span class="string">"&lt;test-1/&gt; "</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Define a component named test and then import test-2 */</span></span><br><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    imports: [<span class="string">"test-2"</span>],</span><br><span class="line">    template: <span class="string">"&lt;test-2/&gt;World"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p class="demo" id="app2"></p>
 
@@ -209,10 +221,24 @@
 <ul>
 <li>The entire composite component shares a <code>data</code>. That is, there is no hierarchical relationship between composite components, and any component can manipulate data from all other components. <strong>(In addition, according to the order in which imports are imported, data of the same name will overwrite the previous data of the same name)</strong></li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Define a component called test-1 */</span></span><br><span class="line">Ale(<span class="string">"test-1"</span>, &#123;</span><br><span class="line">    template: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.h; <span class="comment">/* Here access to the data of the test component */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Define a component called test-2 */</span></span><br><span class="line">Ale(<span class="string">"test-2"</span>, &#123;</span><br><span class="line">    imports: [<span class="string">"test-1"</span>],</span><br><span class="line">    template: <span class="string">"&lt;test-1/&gt; "</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Define a component named test and then import test-2 */</span></span><br><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    imports: [<span class="string">"test-2"</span>],</span><br><span class="line">    template: <span class="string">"&lt;test-2/&gt;World"</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        h: <span class="string">"Hello"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Define a component called test-1 */</span></span><br><span class="line">Ale(<span class="string">"test-1"</span>, &#123;</span><br><span class="line">    template: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.data.h; <span class="comment">/* Here access to the data of the test component */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Define a component called test-2 */</span></span><br><span class="line">Ale(<span class="string">"test-2"</span>, &#123;</span><br><span class="line">    imports: [<span class="string">"test-1"</span>],</span><br><span class="line">    template: <span class="string">"&lt;test-1/&gt; "</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Define a component named test and then import test-2 */</span></span><br><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    imports: [<span class="string">"test-2"</span>],</span><br><span class="line">    template: <span class="string">"&lt;test-2/&gt;World"</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        h: <span class="string">"Hello"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p class="demo" id="app3"></p>
 
-<script src="../../../../js/Ale.min.js"></script>
+<ul>
+<li><p>The entire composite component shares a single method.</p>
+</li>
+<li><p>The entire composite component shares a proxy.</p>
+</li>
+<li><p>The entire composite component shares a life.</p>
+</li>
+</ul>
+<h4 id="Including-local-components"><a href="#Including-local-components" class="headerlink" title="Including local components"></a>Including local components<div class="v100-add"></div></h4><p>If you want to include a partial component, simply reference the <code>Ale local component generation object</code> in the <code>imports</code> property.</p>
+<p>At the same time you need to add a <code>name</code> attribute to the local component, otherwise Ale has no way to distinguish the name of the local component [default is unknown]:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Define a local component called test-1 */</span></span><br><span class="line"><span class="keyword">var</span> test1 = Ale(&#123;</span><br><span class="line">    template: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.data.h; <span class="comment">/* Here access to the data of the test component */</span></span><br><span class="line">    &#125;,</span><br><span class="line">    name: <span class="string">"test1"</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Define a component called test-2 */</span></span><br><span class="line"><span class="keyword">var</span> test2 = Ale(&#123;</span><br><span class="line">    imports: [test1],</span><br><span class="line">    template: <span class="string">"&lt;test1/&gt; "</span>,</span><br><span class="line">    name: <span class="string">"test2"</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Define a component named test and then import test-2 */</span></span><br><span class="line"><span class="keyword">var</span> test = Ale(&#123;</span><br><span class="line">    imports: [test2],</span><br><span class="line">    template: <span class="string">"&lt;test2/&gt;World"</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        h: <span class="string">"Hello"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">test.render(&#123;</span><br><span class="line">    el: <span class="string">"#app"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p class="demo" id="app4"></p>
+
+
+<script src="../../../../js/Ale.v1.min.js"></script>
 <script>
 Ale("test-1", {
     template: "Hello"
@@ -243,7 +269,7 @@ Ale.render("test-3", {
 
 Ale("test-4", {
     template: function(){
-        return this.h;
+        return this.data.h;
     }
 })
 
@@ -262,6 +288,30 @@ Ale("test-6", {
 
 Ale.render("test-6", {
     el: "#app3"
+})
+
+var test1 = Ale({
+    template: function(){
+        return this.data.h;
+    },
+    name: "test1"
+})
+
+var test2 = Ale({
+    imports: [test1],
+    template: "<test1/> ",
+    name: "test2"
+})
+
+var test = Ale({
+    imports: [test2],
+    template: "<test2/>World",
+    data: {
+        h: "Hello"
+    }
+})
+test.render({
+    el: "#app4"
 })
 </script>
 </section>

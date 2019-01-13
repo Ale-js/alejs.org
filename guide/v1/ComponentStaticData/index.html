@@ -9,7 +9,7 @@
     
     <title>
         
-        Method |
+        Static Data |
         Ale.js
         
     </title>
@@ -203,62 +203,26 @@
 <main class="app-body flex-box guide-main">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><h4 id="1-0-0Updated-content"><a href="#1-0-0Updated-content" class="headerlink" title="1.0.0Updated content:"></a>1.0.0Updated content:</h4><p>In version 1.0.0 and later, use <code>this</code> in any function in the <code>methods</code> parameter to refer to the ale component object after rendering.</p>
-<p><br></p>
-<p>Also, in version 1.0.0 and later, you can also dynamically set or override the <code>methods</code> property when the component is rendered.</p>
-<h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><p>Let’s follow the tutorial for the component <a href="/guide/v1/ComponentLife/">life</a>, or an example of a timer:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"timer"</span>, &#123;</span><br><span class="line">    template: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;span&gt;Now Time: &lt;/span&gt;"</span> + <span class="keyword">this</span>.data.time</span><br><span class="line">    &#125;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        time: <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString()</span><br><span class="line">    &#125;,</span><br><span class="line">    life: &#123;</span><br><span class="line">        mounting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">/* Need to use the arrow function here, because this will not be bound */</span></span><br><span class="line">            <span class="keyword">this</span>.timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.data.time = <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString();</span><br><span class="line">            &#125;, <span class="number">1000</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        unmounting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            clearInterval(<span class="keyword">this</span>.timer);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Ale.render(<span class="string">"timer"</span>, &#123;</span><br><span class="line">    el: <span class="string">"#app"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p></p><p class="demo" id="app">&lt;/p</p>
-<p>I don’t know if you noticed that our timer is added directly to <code>this</code>:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Note here, directly bound to the Ale component object (this) */</span></span><br><span class="line"><span class="keyword">this</span>.timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.data.time = <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString();</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p>However, if we are not careful, the added function has the same name as the built-in function in <code>Ale Component Object</code>, then there will be some unknown bugs.</p>
-<p>At this point, we recommend that you add the function to the built-in property <code>methods</code> in the <code>Ale component object</code>!</p>
-<p>Let’s modify the code:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"timer"</span>, &#123;</span><br><span class="line">    template: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;span&gt;Now Time: &lt;/span&gt;"</span> + <span class="keyword">this</span>.data.time</span><br><span class="line">    &#125;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        time: <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString()</span><br><span class="line">    &#125;,</span><br><span class="line">    life: &#123;</span><br><span class="line">        mounting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">/* Note here, binding methods on */</span></span><br><span class="line">            <span class="keyword">this</span>.methods.timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.data.time = <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString();</span><br><span class="line">            &#125;, <span class="number">1000</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        unmounting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            clearInterval(<span class="keyword">this</span>.methods.timer);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>The instance is executable normally.</p>
-<p>At the same time, you can also set <code>methods</code> when the component is defined:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    template: <span class="string">"test"</span>,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        <span class="comment">/* Define a function called testFn */</span></span><br><span class="line">        testFn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert(<span class="string">"test!"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    life: &#123;</span><br><span class="line">        mounting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">/* 动态调用它 */</span></span><br><span class="line">            <span class="keyword">this</span>.methods.testFn();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h3><p>Like the <code>data</code> property, the <code>methods</code> property is automatically bound to all elements and child elements of the component, accessible via <code>this.methods</code>:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">template: <span class="string">"&lt;span onclick='this.methods.testFn()'&gt;Click me!&lt;/span&gt;"</span></span><br></pre></td></tr></table></figure>
-<div class="demo" id="app2"></div>
+    <section class="markdown-content"><h1 id="Static-Data"><a href="#Static-Data" class="headerlink" title="Static Data"></a>Static Data<div class="v100-add"></div></h1><h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><p>In the <a href="/guide/v1/ComponentData/">Data</a> article, you have learned the <code>Data</code> property. If you haven’t studied yet, please learn Data first.</p>
+<h4 id="Detailed-difference"><a href="#Detailed-difference" class="headerlink" title="Detailed difference"></a>Detailed difference</h4><p>The most important difference between <code>Data</code> and <code>Static Data</code> is that the view will not be refreshed when the static data is updated [Please enter <code>app.staticData.i = &quot;new value&quot;</code> in the console to see if the example below will Update it!]:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    template: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"The value of data i on the view is:"</span> + <span class="keyword">this</span>.staticData.i;</span><br><span class="line">    &#125;,</span><br><span class="line">    staticData: &#123;</span><br><span class="line">        i: <span class="string">"Hello"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<div class="demo" id="app"></div>
 
-
+<h4 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h4><p>Similarly, static data also supports function types:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">staticData: function()&#123;</span><br><span class="line">    /* Need to use return */</span><br><span class="line">    return &#123;</span><br><span class="line">        i: &quot;Hello&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <script src="../../../../js/Ale.v1.min.js"></script>
 <script>
-Ale("timer", {
-    template: function(){
-        return "<span>Now Time: </span>" + this.data.time
-    },
-    data: {
-        time: new Date().toLocaleTimeString()
-    },
-    life: {
-        mounting: function(){
-            this.timer = setInterval(() => {
-                this.data.time = new Date().toLocaleTimeString();
-            }, 1000);
-        },
-        unmounting: function(){
-            clearInterval(this.timer);
-        }
-    }
-})
-
-Ale.render("timer", {
-    el: "#app"
-})
-
 Ale("test", {
-    template: "<span onclick='this.methods.testFn()'>Click me!</span>",
-    methods: {
-        testFn: function(){
-            alert("test!")
-        }
+    template: function(){
+        return "The value of data i on the view is:" + this.staticData.i;
+    },
+    staticData: {
+        i: "Hello"
     }
 })
 
-Ale.render("test", {
-    el: "#app2"
+var app = Ale.render("test", {
+    el: "#app"
 })
 </script>
 </section>
@@ -280,7 +244,7 @@ Ale.render("test", {
 
 <script>
   (function () {
-    var url = 'http://www.alejs.org/guide/v1/ComponentMethod/';
+    var url = 'http://www.alejs.org/guide/v1/ComponentStaticData/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -335,7 +299,7 @@ Ale.render("test", {
     var gitmentConfig = "";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "Method",
+        id: "Static Data",
         owner: "",
         repo: "",
         oauth: {
@@ -363,7 +327,7 @@ Ale.render("test", {
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'http://www.alejs.org/guide/v1/ComponentMethod/';
+  var disqus_url = 'http://www.alejs.org/guide/v1/ComponentStaticData/';
   
   (function(){
     var dsq = document.createElement('script');

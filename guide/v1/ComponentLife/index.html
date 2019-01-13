@@ -135,12 +135,12 @@
     </script>
 </div>
 
+
 <div id="sidebar-inner-tran">
     <h2>Guide</h2>
     <select id="select-version" style="outline: none;">
-        <option selected value="1.X">1.0-Beta.1+</option>
+        <option selected value="1.X">1.0-Beta.1 - 1.0</option>
     </select>
-
 
     <div id="v1X">
         <h3>Foundation</h3>
@@ -154,21 +154,33 @@
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentData" class="sidebar-link">Data</a>
         <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentStaticData" class="sidebar-link">Static Data<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentLife" class="sidebar-link">Life</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentMethod" class="sidebar-link">Method</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentImport" class="sidebar-link">Composite Component</a>
         <div class="sidebar-br"></div>
-        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode</a>
+        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode<div class="v100-remove"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentProxy" class="sidebar-link">Proxy<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentDataType" class="sidebar-link">Data type decision<div class="v100-add"></div></a>
         <h3>Expansion</h3>
         <a href="/guide/v1/plugin" class="sidebar-link">Plugin</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentWatch" class="sidebar-link">Watch<div class="v100-add"></div></a>
         <h3>Advanced</h3>
         <a href="/guide/v1/version" class="sidebar-link">Version</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/config" class="sidebar-link">Config</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/filter" class="sidebar-link">Filter</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/nextTick" class="sidebar-link">Async DOM<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/other" class="sidebar-link">Other functions<div class="v100-add"></div></a>
         <h3>Inner</h3>
         <a href="/guide/v1/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
         <h3>More</h3>
@@ -199,23 +211,24 @@
 <li>rendering (when the component is rendered)</li>
 <li>updating (when the component is updated)</li>
 <li>destroy (when the component is destroyed)</li>
+<li>staticDataUpdating (when static data is updated)<div class="v100-add"></div></li>
 </ul>
 <p>You can add a property called <code>life</code> when defining a component and add a function to the <code>life</code> property:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    template: <span class="string">"test"</span>,</span><br><span class="line">    life: &#123;</span><br><span class="line">        <span class="comment">/* Add the life attribute here, you need to be the object */</span></span><br><span class="line">        <span class="comment">/* Add a using function that fires when the component is used */</span></span><br><span class="line">        using: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert(<span class="string">"using!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    template: <span class="string">"test"</span>,</span><br><span class="line">    life: &#123;</span><br><span class="line">        <span class="comment">/* Add the life attribute here, you need to be object */</span></span><br><span class="line">        <span class="comment">/* Add the using function to fire when the component is used */</span></span><br><span class="line">        using: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert(<span class="string">"using!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p class="demo" id="app"><button onclick="Ale.render('test',{el: '#app'})">Point me to render the test component</button></p>
 
 <h3 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h3><p>In addition to the using function, other functions will automatically bind the Ale component object. If you need to change the data, use the form <code>this.data</code> to change:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    template: <span class="string">"test"</span>,</span><br><span class="line">    life: &#123;</span><br><span class="line">        <span class="comment">/* Add the life attribute here, you need to be the object */</span></span><br><span class="line">        <span class="comment">/* Add a rendering function that fires when the component is rendered */</span></span><br><span class="line">        rendering: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.data); <span class="comment">/* print data */</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="Online-instance"><a href="#Online-instance" class="headerlink" title="Online instance"></a>Online instance</h3><p>Let’s make a timer that outputs the current time, updated every second:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"timer"</span>, &#123;</span><br><span class="line">    template: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Now Time: "</span> + <span class="keyword">this</span>.time</span><br><span class="line">    &#125;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        time: <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString()</span><br><span class="line">    &#125;,</span><br><span class="line">    life: &#123;</span><br><span class="line">        mounting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">/* Need to use the arrow function here, because this will not be bound */</span></span><br><span class="line">            <span class="keyword">this</span>.timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.data.time = <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString();</span><br><span class="line">            &#125;, <span class="number">1000</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        unmounting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            clearInterval(<span class="keyword">this</span>.timer);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Ale.render(<span class="string">"timer"</span>, &#123;</span><br><span class="line">    el: <span class="string">"#app"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    template: <span class="string">"test"</span>,</span><br><span class="line">    life: &#123;</span><br><span class="line">        <span class="comment">/* Add the life attribute here, you need to be object */</span></span><br><span class="line">        <span class="comment">/* Add the rendering function to fire when the component is rendered */</span></span><br><span class="line">        rendering: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.data); <span class="comment">/* print data */</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Online-instance"><a href="#Online-instance" class="headerlink" title="Online instance"></a>Online instance</h3><p>Let’s make a timer, output the current time, update every second: <a href="https://jsfiddle.net/billdong/y5p327vq/2/" target="_blank" rel="noopener">view on jsfiddle</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Ale(<span class="string">"timer"</span>, &#123;</span><br><span class="line">    template: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Now Time: "</span> + <span class="keyword">this</span>.data.time</span><br><span class="line">    &#125;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        time: <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString()</span><br><span class="line">    &#125;,</span><br><span class="line">    life: &#123;</span><br><span class="line">        mounting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">/* Need to use the arrow function here, because this will not be bound */</span></span><br><span class="line">            <span class="keyword">this</span>.timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.data.time = <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString();</span><br><span class="line">            &#125;, <span class="number">1000</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        unmounting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            clearInterval(<span class="keyword">this</span>.timer);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Ale.render(<span class="string">"timer"</span>, &#123;</span><br><span class="line">    el: <span class="string">"#app"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p class="demo" id="app2"></p>
 
 <p>The upper timer does not apply Ale’s built-in <code>diff</code> algorithm because you need to wrap elements that don’t need to be updated with DOM tags:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">template: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"&lt;span&gt;Now Time: &lt;/span&gt;"</span> + <span class="keyword">this</span>.time</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">template: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"&lt;span&gt;Now Time: &lt;/span&gt;"</span> + <span class="keyword">this</span>.data.time</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p class="demo" id="app3"></p>
 
 <p>Now you can open the console and compare the refresh of the two instance DOMs. You will find that the <code>Now Time:</code> of this instance is not updated.</p>
-<script src="../../../../js/Ale.min.js"></script>
+<script src="../../../../js/Ale.v1.min.js"></script>
 <script>
 Ale("test", {
     template: "test",
@@ -228,7 +241,7 @@ Ale("test", {
 
 Ale("timer", {
     template: function(){
-        return "Now Time: " + this.time
+        return "Now Time: " + this.data.time
     },
     data: {
         time: new Date().toLocaleTimeString()
@@ -252,7 +265,7 @@ Ale.render("timer", {
 
 Ale("timer2", {
     template: function(){
-        return "<span>Now Time: </span>" + this.time
+        return "<span>Now Time: </span>" + this.data.time
     },
     data: {
         time: new Date().toLocaleTimeString()

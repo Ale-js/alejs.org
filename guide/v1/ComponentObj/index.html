@@ -135,12 +135,12 @@
     </script>
 </div>
 
+
 <div id="sidebar-inner-tran">
     <h2>Guide</h2>
     <select id="select-version" style="outline: none;">
-        <option selected value="1.X">1.0-Beta.1+</option>
+        <option selected value="1.X">1.0-Beta.1 - 1.0</option>
     </select>
-
 
     <div id="v1X">
         <h3>Foundation</h3>
@@ -154,21 +154,33 @@
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentData" class="sidebar-link">Data</a>
         <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentStaticData" class="sidebar-link">Static Data<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentLife" class="sidebar-link">Life</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentMethod" class="sidebar-link">Method</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentImport" class="sidebar-link">Composite Component</a>
         <div class="sidebar-br"></div>
-        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode</a>
+        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode<div class="v100-remove"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentProxy" class="sidebar-link">Proxy<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentDataType" class="sidebar-link">Data type decision<div class="v100-add"></div></a>
         <h3>Expansion</h3>
         <a href="/guide/v1/plugin" class="sidebar-link">Plugin</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentWatch" class="sidebar-link">Watch<div class="v100-add"></div></a>
         <h3>Advanced</h3>
         <a href="/guide/v1/version" class="sidebar-link">Version</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/config" class="sidebar-link">Config</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/filter" class="sidebar-link">Filter</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/nextTick" class="sidebar-link">Async DOM<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/other" class="sidebar-link">Other functions<div class="v100-add"></div></a>
         <h3>Inner</h3>
         <a href="/guide/v1/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
         <h3>More</h3>
@@ -197,19 +209,20 @@
 
 <p>Let’s click on the example above and you will see it output its own <code>Ale component object</code> in the console.</p>
 <h3 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h3><p>But this creates a problem. If our component needs dynamic rendering, how do we get its <code>Ale component object</code>?</p>
-<p>Very simple, you only need to use the <code>this</code> keyword in the properties of the support function to get <strong>(because the <code>template</code> property is special, the automatic binding is <code>this.data</code>, so use <code>this in the template property.</code>The representative refers to <code>this.data</code>)</strong>:</p>
+<p>Very simple, you only need to use the <code>this</code> keyword in the properties of the support function to get:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Define a component */</span></span><br><span class="line">Ale(<span class="string">"test"</span>, &#123;</span><br><span class="line">    life: &#123;</span><br><span class="line">        mounting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>) <span class="comment">/* Here this refers to the Ale component object after rendering is completed. */</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>In the above example, you may not understand the role of the <code>life</code> attribute, but we will show you how to use it. For details, please continue to view the tutorial!</p>
+<p>In the above example, you may not understand the role of the <code>life</code> attribute, but we are just showing you how to use it. For details, please continue to view the tutorial!</p>
 <p>Currently all the properties of the supported function:</p>
 <ul>
-<li>template <strong>(Because the <code>template</code> attribute is special, it is automatically bound to <code>this.data</code>, so using <code>this</code> in the template attribute refers to <code>this.data</code>)</strong></li>
+<li>template <strong>(1.0.0 before the <code>template</code> property is automatically bound to <code>this.data</code>, and in version 1.0.0 and later, using the <code>this</code> code in the template property refers to the ale component after rendering. The object, which is <code>this</code> [but you can only access the data, staticData, methods properties of the ale component object])</strong>:</li>
 <li>life <strong>(the life attribute itself does not support functions, but its internal properties all support functions)</strong></li>
-<li>debug <strong>(The debug property itself does not support functions, but its internal properties all support functions. <span style="color:red"> However, note that the internal function of debug will not bind this</span>)</strong></li>
+<li>debug <strong>(The debug property itself does not support functions, but its internal properties all support functions. <span style="color:red"> However, note that the internal function of debug <em>will not</em> bind this</span>)</strong></li>
+<li>proxy <strong>(The proxy property itself does not support functions, but its internal properties all support functions.)</strong></li>
 </ul>
-<script src="../../../../js/Ale.min.js"></script>
+<script src="../../../../js/Ale.v1.min.js"></script>
 <script>
 Ale("aleComObj", {
-    template: "<button onclick='console.log(app)'>Click me to output my Ale component object in the console</button>"
+    template: "<button onclick='console.log(app)'>点我在控制台中输出我的：Ale组件对象</button>"
 })
 var app = Ale.render("aleComObj", {
     el: "#app"

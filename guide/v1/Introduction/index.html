@@ -135,12 +135,12 @@
     </script>
 </div>
 
+
 <div id="sidebar-inner-tran">
     <h2>Guide</h2>
     <select id="select-version" style="outline: none;">
-        <option selected value="1.X">1.0-Beta.1+</option>
+        <option selected value="1.X">1.0-Beta.1 - 1.0</option>
     </select>
-
 
     <div id="v1X">
         <h3>Foundation</h3>
@@ -154,21 +154,33 @@
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentData" class="sidebar-link">Data</a>
         <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentStaticData" class="sidebar-link">Static Data<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentLife" class="sidebar-link">Life</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentMethod" class="sidebar-link">Method</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/ComponentImport" class="sidebar-link">Composite Component</a>
         <div class="sidebar-br"></div>
-        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode</a>
+        <a href="/guide/v1/ComponentDebug" class="sidebar-link">Debug Mode<div class="v100-remove"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentProxy" class="sidebar-link">Proxy<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentDataType" class="sidebar-link">Data type decision<div class="v100-add"></div></a>
         <h3>Expansion</h3>
         <a href="/guide/v1/plugin" class="sidebar-link">Plugin</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/ComponentWatch" class="sidebar-link">Watch<div class="v100-add"></div></a>
         <h3>Advanced</h3>
         <a href="/guide/v1/version" class="sidebar-link">Version</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/config" class="sidebar-link">Config</a>
         <div class="sidebar-br"></div>
         <a href="/guide/v1/filter" class="sidebar-link">Filter</a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/nextTick" class="sidebar-link">Async DOM<div class="v100-add"></div></a>
+        <div class="sidebar-br"></div>
+        <a href="/guide/v1/other" class="sidebar-link">Other functions<div class="v100-add"></div></a>
         <h3>Inner</h3>
         <a href="/guide/v1/deepInRespond" class="sidebar-link">In-depth Responsive Principle</a>
         <h3>More</h3>
@@ -200,7 +212,7 @@
 <p>If you are already an experienced front-end developer and want to know the specific differences between Ale and other libraries/frames, check out <a href="/guide/v1/Comparison">Compare other frameworks</a>.</p>
 <h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><p class="info-box">Our official guide assumes that you already know intermediate knowledge about HTML, CSS, and JavaScript. If you are just starting to learn about front-end development, it may not be the best idea to use the framework as your first step - get the basics and come back! Previous experience with other frameworks will help, but it is not required.<br></p>
 
-<p>The simplest example of using Ale is to make a <code>HelloWorld</code> page. Let’s create a <code>.html</code> file and then include Ale as follows:</p>
+<p>The simplest example of using Ale is to make a <code>HelloWorld</code> page. Let’s create a <code>.html</code> file and then introduce Ale as follows (or you can also <a href="https://jsfiddle.net" target="_blank" rel="noopener">view on jsfiddle</a> /billdong/Lqb8hy5z/5/)):</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Development environment version --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"ale.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Or:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Production environment version, compressed code --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"ale.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -223,7 +235,7 @@
 <p class="demo" id="app"></p>
 
 <h3 id="Are-you-ready"><a href="#Are-you-ready" class="headerlink" title="Are you ready?"></a>Are you ready?</h3><p>Congratulations, now that you have created your first <code>Ale</code> component! And our tutorial is just getting started - the rest of this tutorial will cover more detailed details of other advanced features, so be sure to read the full tutorial!</p>
-<script src="../../../../js/Ale.min.js"></script>
+<script src="../../../../js/Ale.v1.min.js"></script>
 <script>
     Ale("com1", {
         template: "HelloWorld"
