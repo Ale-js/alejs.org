@@ -68,6 +68,12 @@ pre {
   box-sizing: border-box;
   display: inline-block;
 }
+#index-ads {
+  height: auto;
+  width: 200px;
+  margin: auto;
+  margin-top: 10px;
+}
 .demo {
   border: 1px solid #eee;
   border-radius: 2px;
