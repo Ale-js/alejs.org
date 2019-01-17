@@ -55,6 +55,14 @@ pre {
 .v100-remove {
   display: inline-block;
 }
+.v110-add::before {
+  display: inline-block;
+  content: "【1.1.0+】";
+  color: #008000;
+}
+.v110-add {
+  display: inline-block;
+}
 .index-code {
   color: #e96900;
   margin: 0 2px;
