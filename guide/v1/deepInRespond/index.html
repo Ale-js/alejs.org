@@ -139,7 +139,7 @@
 <div id="sidebar-inner-tran">
     <h2>Guide</h2>
     <select id="select-version" style="outline: none;">
-        <option selected value="1.X">1.0.0 - 1.1.0</option>
+        <option selected value="1.X">1.0.0 - 1.1.1</option>
     </select>
 
     <div id="v1X">
@@ -214,7 +214,7 @@
 <p><br></p>
 <p>In addition, the diff comparison will only be done in the peer DOM. Once a level change occurs, Ale will not continue to compare, but update the entire layer directly. This can effectively increase the contrast performance of diff and reduce the time of comparison.</p>
 <p><br></p>
-<p>Another point is that Ale’s <code>diff</code> algorithm only compares whether the element’s <code>content</code> \ <code>id</code> \ <code>class</code> \ <code>name</code> attribute is the same, that is, when you dynamically update for example <code>onclick</code> The properties of the class, the <code>diff</code> algorithm does not compare the differences, and the elements are not updated. At this point you can manually turn off the <code>diff</code> algorithm when the element is updated and open it when the element update is complete!</p>
+<p>Another point is that Ale’s <code>diff</code> algorithm compares the element’s <code>content</code> \ <code>attribute</code> <strong>[1.1.0 version will only compare <code>content</code> \ <code>id</code> \ <code>class</code> \ <code>name</code>]</strong> is it the same, when you dynamically update other types of content, the <code>diff</code> algorithm does not compare the differences, and the elements are not updated. At this point you can manually turn off the <code>diff</code> algorithm when the element is updated and open it when the element update is complete!</p>
 </section>
     <!-- Tags START -->
     
